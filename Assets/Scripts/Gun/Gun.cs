@@ -1,18 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public static Action OnShoot;
     public Transform BulletSpawnPoint => _bulletSpawnPoint;
 
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private float _gunFireCD = 0.5f;
 
+    private static readonly int FIRE_HASH = Animator.StringToHash("Fire");
     private Vector2 _mousePos;
     private float _lastFireTime;
-    
+
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
+        OnShoot += ShootProjectile;
+        OnShoot += FireAnimation;
+        OnShoot += UpdateLastFireTime;
+    }
+
+    private void OnDisable()
+    {
+        OnShoot -= ShootProjectile;
+        OnShoot -= FireAnimation;
+        OnShoot -= UpdateLastFireTime;
+    }
+
     private void Update()
     {
         Shoot();
@@ -23,8 +47,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time >= _lastFireTime) 
         {
-            ShootProjectile();
-            _lastFireTime += _gunFireCD;
+            OnShoot?.Invoke();    
         }
     }
 
@@ -32,6 +55,16 @@ public class Gun : MonoBehaviour
     { 
         Bullet newBullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
         newBullet.Init(_bulletSpawnPoint.position, _mousePos);
+    }
+
+    private void UpdateLastFireTime()
+    {
+        _lastFireTime += _gunFireCD;
+    }
+
+    private void FireAnimation()
+    {
+        _animator.Play(FIRE_HASH, 0, 0f);
     }
 
     private void RotateGun()
