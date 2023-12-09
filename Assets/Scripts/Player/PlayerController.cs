@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _jumpStrength = 7f;
+    [SerializeField] private float _extraGravity = 700f;
+    [SerializeField] private float _gravityDelay = .2f;
+
+    private float _timeInAir;
 
     private PlayerInput _playerInput;
     private FrameInput _frameInput;
@@ -31,6 +35,12 @@ public class PlayerController : MonoBehaviour
         Movement();
         Jump();
         HandleSpriteFlip();
+        GravityDelayMethod();
+    }
+
+    private void FixedUpdate()
+    {
+        ExtraGravity();
     }
 
     private bool CheckGrounded()
@@ -43,6 +53,27 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_feetTransform.position, _groundCheck);
+    }
+
+    private void GravityDelayMethod()
+    {
+        if (!CheckGrounded())
+        {
+            _timeInAir += Time.deltaTime;
+        }
+        else
+        {
+            _timeInAir = 0;
+        }
+            
+    }
+
+    private void ExtraGravity()
+    {
+        if (_timeInAir > _gravityDelay)
+        {
+            _rigidBody.AddForce(new Vector2(0, -_extraGravity));
+        }
     }
 
     public bool IsFacingRight()
