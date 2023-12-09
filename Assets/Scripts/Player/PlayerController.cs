@@ -9,13 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _feetTransform;
     [SerializeField] private Vector2 _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpStrength = 7f;
 
     private PlayerInput _playerInput;
     private FrameInput _frameInput;
-
-    private Vector2 _movement;
+    private Movement _movement;
 
     private Rigidbody2D _rigidBody;
 
@@ -24,20 +22,17 @@ public class PlayerController : MonoBehaviour
 
         _rigidBody = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
+        _movement = GetComponent<Movement>();
     }
 
     private void Update()
     {
         GatherInput();
+        Movement();
         Jump();
         HandleSpriteFlip();
     }
 
-    private void FixedUpdate() {
-        Move();
-    }
-
-    
     private bool CheckGrounded()
     {
         Collider2D isGrounded = Physics2D.OverlapBox(_feetTransform.position, _groundCheck, 0, _groundLayer);
@@ -58,12 +53,11 @@ public class PlayerController : MonoBehaviour
     private void GatherInput()
     {
         _frameInput = _playerInput.FrameInput;
-        _movement = new Vector2(_frameInput.Move.x * _moveSpeed, _rigidBody.velocity.y);
     }
 
-    private void Move() {
-
-        _rigidBody.velocity = new Vector2 (_movement.x, _rigidBody.velocity.y);
+    private void Movement()
+    {
+        _movement.SetCurrentDirection(_frameInput.Move.x);
     }
 
     private void Jump()
