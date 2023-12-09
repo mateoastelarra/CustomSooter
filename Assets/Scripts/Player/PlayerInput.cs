@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        GatherInput();
+       FrameInput = GatherInput();
     }
 
     private FrameInput GatherInput() 
