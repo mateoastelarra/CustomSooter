@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Action OnJump;
+
     public static PlayerController Instance;
 
     [SerializeField] private Transform _feetTransform;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _gravityDelay = .2f;
 
     private float _timeInAir;
+    private bool _doubleJumpAvailable;
 
     private PlayerInput _playerInput;
     private FrameInput _frameInput;
@@ -29,13 +31,23 @@ public class PlayerController : MonoBehaviour
         _movement = GetComponent<Movement>();
     }
 
+    private void OnEnable()
+    {
+        OnJump += ApplyJumpForce;
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
     private void Update()
     {
         GatherInput();
         Movement();
-        Jump();
+        HandleJump();
         HandleSpriteFlip();
-        GravityDelayMethod();
+        GravityDelay();
     }
 
     private void FixedUpdate()
@@ -55,7 +67,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(_feetTransform.position, _groundCheck);
     }
 
-    private void GravityDelayMethod()
+    private void GravityDelay()
     {
         if (!CheckGrounded())
         {
@@ -91,11 +103,21 @@ public class PlayerController : MonoBehaviour
         _movement.SetCurrentDirection(_frameInput.Move.x);
     }
 
-    private void Jump()
+    private void HandleJump()
     {
-        if (_frameInput.Jump && CheckGrounded()) {
-            _rigidBody.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Impulse);
+        if (!_frameInput.Jump) { return; }
+
+        if (!_doubleJumpAvailable || CheckGrounded()) {
+            _doubleJumpAvailable = !CheckGrounded();
+            OnJump?.Invoke();
         }
+    }
+
+    private void ApplyJumpForce()
+    {
+        _rigidBody.velocity = new Vector2 (_rigidBody.velocity.x, 0);
+        _timeInAir = 0f;
+        _rigidBody.AddForce(Vector2.up * _jumpStrength, ForceMode2D.Impulse);
     }
 
     private void HandleSpriteFlip()
