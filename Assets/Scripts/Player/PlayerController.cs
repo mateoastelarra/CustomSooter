@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpStrength = 7f;
 
-    private bool _isGrounded = false;
     private Vector2 _movement;
 
     private Rigidbody2D _rigidBody;
