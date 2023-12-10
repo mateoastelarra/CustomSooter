@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 30
   _damageAmount: 1
+  _knockBackThrust: 20
+  _VFXPrefab: {fileID: 8759431105606766085, guid: 7ec3ae9c1e319824bb4dbf634621d2f8, type: 3}
 --- !u!212 &3373200371414082845
 SpriteRenderer:
   m_ObjectHideFlags: 0

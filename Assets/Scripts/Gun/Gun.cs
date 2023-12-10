@@ -61,7 +61,7 @@ public class Gun : MonoBehaviour
             bullet.gameObject.SetActive(false);
         }, bullet => {
             Destroy(bullet);
-        }, false, 20, 40);
+        }, false);
     }
 
     private void Update()
