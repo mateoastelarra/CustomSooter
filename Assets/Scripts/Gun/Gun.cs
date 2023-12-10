@@ -46,11 +46,6 @@ public class Gun : MonoBehaviour
         OnShoot -= GunScreenShake;
     }
 
-    public void ReleaseBulletFromPool(Bullet bullet)
-    {
-        _bulletPool.Release(bullet);
-    }
-
     private void CreateBulletPool()
     {
         _bulletPool = new ObjectPool<Bullet>(() => {
@@ -61,7 +56,12 @@ public class Gun : MonoBehaviour
             bullet.gameObject.SetActive(false);
         }, bullet => {
             Destroy(bullet);
-        }, false);
+        }, true, 20, 40);
+    }
+
+    public void ReleaseBulletFromPool(Bullet bullet)
+    {
+        if (bullet.isActiveAndEnabled) { _bulletPool.Release(bullet); } 
     }
 
     private void Update()
