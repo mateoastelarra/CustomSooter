@@ -230,6 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94d1852073606a4aab984c0ac7577c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fillSpriteRenderer: {fileID: 5968084354001695933}
+  _colors:
+  - {r: 0.41304737, g: 0.7103941, b: 0.9622642, a: 1}
+  - {r: 0.8999107, g: 0.43921566, b: 0.9607843, a: 1}
+  - {r: 0.38823527, g: 0.972549, b: 0.5115094, a: 1}
 --- !u!61 &2832387929957637719
 BoxCollider2D:
   m_ObjectHideFlags: 0
