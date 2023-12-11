@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerAnimations : MonoBehaviour
 {
@@ -9,6 +10,17 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] private float _hatTiltModifier = 8f;
     [SerializeField] Transform _characterSpriteTransform;
     [SerializeField] Transform _characterHatTransform;
+    [SerializeField] float _yLandVelocityCheck = -20f;
+    [SerializeField] CinemachineImpulseSource _hitGroundImpulseSource;
+
+    private Vector2 _velocityBeforePyhsicsUpdate;
+
+    private Rigidbody2D _rigidBody;
+
+    private void Awake()
+    {
+        _rigidBody = GetComponent<Rigidbody2D>();
+    }
 
 
     private void Update()
@@ -25,6 +37,21 @@ public class PlayerAnimations : MonoBehaviour
     private void OnDisable()
     {
         PlayerController.OnJump -= PlayJumpEffect;
+    }
+
+    private void FixedUpdate()
+    {
+        _velocityBeforePyhsicsUpdate = _rigidBody.velocity;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (_velocityBeforePyhsicsUpdate.y < _yLandVelocityCheck)
+        {
+            PlayJumpEffect();
+            _hitGroundImpulseSource.GenerateImpulse();
+
+        }
     }
 
     private void DetectMoveDust()
