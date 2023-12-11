@@ -839,6 +839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2011273886}
   - component: {fileID: 2011273896}
+  - component: {fileID: 2011273901}
   - component: {fileID: 2011273899}
   - component: {fileID: 2011273892}
   - component: {fileID: 2011273900}
@@ -7692,7 +7693,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -12777,6 +12778,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockBackTime: 0.2
+--- !u!114 &2011273901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817729410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5c5cccfbbb81742a44192decf6839d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveDustVFX: {fileID: 1265146424}
+  _tiltAngle: 20
+  _tiltSpeed: 5
+  _characterSpriteTransform: {fileID: 893427218}
 --- !u!1 &2043640393
 GameObject:
   m_ObjectHideFlags: 0
