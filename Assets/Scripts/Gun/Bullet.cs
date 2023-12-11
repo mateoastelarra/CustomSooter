@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private int _damageAmount = 1;
     [SerializeField] private float _knockBackThrust = 20f;
-    [SerializeField] private GameObject _VFXPrefab;
+    [SerializeField] private GameObject _bulletVFXPrefab;
 
     private Vector2 _fireDirection;
     private Gun _gun;
@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        Instantiate(_bulletVFXPrefab, transform.position, transform.rotation);
         Health health = other.gameObject.GetComponent<Health>();
         health?.TakeDamage(_damageAmount);
 
@@ -39,8 +40,6 @@ public class Bullet : MonoBehaviour
 
         Flash flash = other.gameObject.GetComponent<Flash>();
         flash?.StartFlash();
-
-        GameObject newVFXPrefab = Instantiate(_VFXPrefab, transform.position, transform.rotation);
 
         _gun.ReleaseBulletFromPool(this);
     }
