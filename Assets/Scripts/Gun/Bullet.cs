@@ -30,16 +30,15 @@ public class Bullet : MonoBehaviour
         _rigidBody.velocity = _fireDirection * _moveSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         Instantiate(_bulletVFXPrefab, transform.position, transform.rotation);
-        Health health = other.gameObject.GetComponent<Health>();
-        health?.TakeDamage(_damageAmount);
 
-        Knockback knockBack = other.gameObject.GetComponent<Knockback>();
-        knockBack?.GetKnockedBack(PlayerController.Instance.transform.position, _knockBackThrust);
+        IHitable iHitable = other.gameObject.GetComponent<IHitable>();
+        iHitable?.TakeHit();
 
-        Flash flash = other.gameObject.GetComponent<Flash>();
-        flash?.StartFlash();
+        IDamageable iDamageable = other.gameObject.GetComponent<IDamageable>();
+        iDamageable?.TakeDamage(_damageAmount, _knockBackThrust);
 
         _gun.ReleaseBulletFromPool(this);
     }
