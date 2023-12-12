@@ -41,6 +41,9 @@ TagManager:
   - name: BackDrop
     uniqueID: 3762033249
     locked: 0
+  - name: No Light
+    uniqueID: 2241689069
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
