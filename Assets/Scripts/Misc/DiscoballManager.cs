@@ -8,9 +8,9 @@ public class DiscoballManager : MonoBehaviour
     public static Action OnStartParty;
     public static Action OnFinishParty;
 
-    [SerializeField] float _partyTime = 5f;
-    [SerializeField] Light2D _globalLight;
-    [SerializeField] float _partyLightIntensity = 0.5f;
+    [SerializeField] private float _partyTime = 5f;
+    [SerializeField] private Light2D _globalLight;
+    [SerializeField] private float _partyLightIntensity = 0.5f;
 
     private Coroutine _discoPartyRoutine;
     private float _defaultLightIntensity;
