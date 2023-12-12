@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455bb65524187b148981d97f81d17ebf, type: 3}
-  m_Name: Shoot
+  m_Script: {fileID: 11500000, guid: d631d8c9df69f1748b2679c49fc5d62f, type: 3}
+  m_Name: Sounds
   m_EditorClassIdentifier: 
-  AudioType: 0
-  Clip: {fileID: 8300000, guid: 802281562317371428157b3d82578c16, type: 3}
-  Loop: 0
-  RandomizePitch: 1
-  RandomPitchModifier: 0.3
-  Volume: 1
-  Pitch: 1
+  GunShoot:
+  - {fileID: 11400000, guid: 720bd683c6093d941a250c1992f06436, type: 2}
+  Jump:
+  - {fileID: 11400000, guid: f81ea58c20928a14ebba55e6227788f9, type: 2}
+  Splat: []
