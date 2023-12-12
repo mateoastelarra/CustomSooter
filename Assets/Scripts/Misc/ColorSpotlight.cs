@@ -29,12 +29,16 @@ public class ColorSpotlight : MonoBehaviour
     {
         DiscoballManager.OnStartParty += StartRotating;
         DiscoballManager.OnFinishParty += StopRotating;
+        DiscoballManager.OnStartParty += TurnOnTheLights;
+        DiscoballManager.OnFinishParty += TurnOffTheLights;
     }
 
     private void OnDisable()
     {
         DiscoballManager.OnFinishParty -= StartRotating;
         DiscoballManager.OnFinishParty -= StopRotating;
+        DiscoballManager.OnStartParty -= TurnOnTheLights;
+        DiscoballManager.OnFinishParty -= TurnOffTheLights;
     }
 
     private void Update()
@@ -44,13 +48,21 @@ public class ColorSpotlight : MonoBehaviour
 
     private void StartRotating()
     {
-        _shouldRotate = true;
-        _light2D.enabled = true;
+        _shouldRotate = true;   
     }
 
     private void StopRotating()
     {
         _shouldRotate = false;
+    }
+
+    private void TurnOnTheLights()
+    {
+        _light2D.enabled = true;
+    }
+
+    private void TurnOffTheLights()
+    {
         _light2D.enabled = false;
     }
 

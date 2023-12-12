@@ -5549,7 +5549,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.79
+  m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000089b5f33a17b73c7c710a93e861123ce05dbcad30ed759d85
@@ -17530,6 +17530,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _partyTime: 5
+  _globalLight: {fileID: 619394801}
+  _partyLightIntensity: 0.5
 --- !u!1 &1585995695
 GameObject:
   m_ObjectHideFlags: 0
