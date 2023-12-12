@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ColorSpotlight : MonoBehaviour
 {
@@ -9,15 +10,48 @@ public class ColorSpotlight : MonoBehaviour
     [SerializeField] private float _maxRotation = 45f;
 
     private float _currentRotation;
+    private bool _shouldRotate = false;
+
+    private Light2D _light2D;
+
+    private void Awake()
+    {
+        _light2D = GetComponentInChildren<Light2D>();
+    }
 
     private void Start()
     {
         RandomStartingRotation();
+        _light2D.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        DiscoballManager.OnStartParty += StartRotating;
+        DiscoballManager.OnFinishParty += StopRotating;
+    }
+
+    private void OnDisable()
+    {
+        DiscoballManager.OnFinishParty -= StartRotating;
+        DiscoballManager.OnFinishParty -= StopRotating;
     }
 
     private void Update()
     {
-        RotateHead();
+        if (_shouldRotate) { RotateHead(); }   
+    }
+
+    private void StartRotating()
+    {
+        _shouldRotate = true;
+        _light2D.enabled = true;
+    }
+
+    private void StopRotating()
+    {
+        _shouldRotate = false;
+        _light2D.enabled = false;
     }
 
     private void RotateHead()

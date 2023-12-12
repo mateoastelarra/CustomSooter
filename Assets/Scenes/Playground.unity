@@ -17379,6 +17379,7 @@ GameObject:
   - component: {fileID: 1498925032}
   - component: {fileID: 1498925033}
   - component: {fileID: 1498925031}
+  - component: {fileID: 1498925034}
   - component: {fileID: 1498925030}
   m_Layer: 0
   m_Name: Disco Ball
@@ -17516,6 +17517,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07524f1f960cddc4f87f2006c7d1bd65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1498925034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498925028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f778d2ab7e661e24586f49817935cb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _partyTime: 5
 --- !u!1 &1585995695
 GameObject:
   m_ObjectHideFlags: 0
@@ -18579,6 +18593,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 43311903}
     m_Modifications:
+    - target: {fileID: 2490869735328452461, guid: 83b1638e1f7e64a46ae5cea41b974e79, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5206436537265446751, guid: 83b1638e1f7e64a46ae5cea41b974e79, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.917162
