@@ -12,12 +12,14 @@ public class AudioManager : MonoBehaviour
     {
         Gun.OnShoot += Gun_OnShoot;
         PlayerController.OnJump += PlayerController_OnJump;
+        Health.OnDeath += Health_OnDeath;
     }
 
     private void OnDisable()
     {
         Gun.OnShoot -= Gun_OnShoot;
         PlayerController.OnJump -= PlayerController_OnJump;
+        Health.OnDeath -= Health_OnDeath;
     }
 
     private void PlayRandomSound(SoundSO[] sounds)
@@ -66,5 +68,10 @@ public class AudioManager : MonoBehaviour
     private void PlayerController_OnJump()
     {
         PlayRandomSound(_soundCollectionsSO.Jump);
+    }
+
+    private void Health_OnDeath(Health sender)
+    {
+        PlayRandomSound(_soundCollectionsSO.Splat);
     }
 }
