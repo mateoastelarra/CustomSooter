@@ -12055,6 +12055,8 @@ MonoBehaviour:
   _masterVolume: 1
   _destroyTimeBonus: 0.2
   _soundCollectionsSO: {fileID: 11400000, guid: c6b4c2a27c03ad64393f06e47a20ef11, type: 2}
+  _musicMixerGroup: {fileID: 2125590460952461148, guid: d9f0af9b6d701b64fb2861e2f72b74bc, type: 2}
+  _sfxMixerGroup: {fileID: 5809259494163146059, guid: d9f0af9b6d701b64fb2861e2f72b74bc, type: 2}
 --- !u!1 &1265146421
 GameObject:
   m_ObjectHideFlags: 0
