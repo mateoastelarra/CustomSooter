@@ -5740,6 +5740,7 @@ GameObject:
   - component: {fileID: 771914339}
   - component: {fileID: 771914341}
   - component: {fileID: 771914340}
+  - component: {fileID: 771914342}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -5826,6 +5827,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771914338}
   m_CullTransparentMesh: 1
+--- !u!114 &771914342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771914338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54abe787632c44469a74eb86c102ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parallaxOffset: 0.75
 --- !u!1 &817729410
 GameObject:
   m_ObjectHideFlags: 0
@@ -11703,6 +11717,7 @@ GameObject:
   - component: {fileID: 1023720134}
   - component: {fileID: 1023720136}
   - component: {fileID: 1023720135}
+  - component: {fileID: 1023720137}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -11789,6 +11804,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023720133}
   m_CullTransparentMesh: 1
+--- !u!114 &1023720137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023720133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54abe787632c44469a74eb86c102ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parallaxOffset: 0.95
 --- !u!1 &1154856999
 GameObject:
   m_ObjectHideFlags: 0
@@ -18372,6 +18400,7 @@ GameObject:
   - component: {fileID: 2043640394}
   - component: {fileID: 2043640396}
   - component: {fileID: 2043640395}
+  - component: {fileID: 2043640397}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -18458,6 +18487,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043640393}
   m_CullTransparentMesh: 1
+--- !u!114 &2043640397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043640393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54abe787632c44469a74eb86c102ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parallaxOffset: 0.85
 --- !u!1001 &2043963828
 PrefabInstance:
   m_ObjectHideFlags: 0
