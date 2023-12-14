@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Grenade : MonoBehaviour
 {
+    [SerializeField] private GameObject _grenadeVFXPrefab;
     [SerializeField] private float _shootImpulse = 20f;
     [SerializeField] private float _explotionTime = 2f;
     [SerializeField] private float _explotionRadius = 1f;
     [Range(1,3)]
     [SerializeField] private int _amountOfTicks = 3;
+    [SerializeField] private float _tickTime = 0.1f;
     [SerializeField] private float _torqueAmount;
     [SerializeField] private int _damageAmount = 3;
     [SerializeField] private float _knockBackThrust = 20f;
-    [SerializeField] private GameObject _grenadeVFXPrefab;
-
+    
     private Vector2 _fireDirection;
     private Gun _gun;
     private Rigidbody2D _rigidBody;
+    private Light2D _tickingLight;
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-        
+        _tickingLight = GetComponentInChildren<Light2D>();
+
+        Debug.Log(_tickingLight);
     }
 
     private void Start()
@@ -64,15 +69,17 @@ public class Grenade : MonoBehaviour
         while(ticks < _amountOfTicks)
         {
             ticks += 1;
-            yield return new WaitForSeconds(_explotionTime / _amountOfTicks);
-            Tick();
+            StartCoroutine(Tick());
+            yield return new WaitForSeconds(_explotionTime / _amountOfTicks);            
         }
         Explode();    
     }
 
-    private void Tick()
+    private IEnumerator Tick()
     {
-        Debug.Log("tick");
+        _tickingLight.enabled = true;
+        yield return new WaitForSeconds(_tickTime);
+        _tickingLight.enabled = false;
     }
 
     private void Explode()
