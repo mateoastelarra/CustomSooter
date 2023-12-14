@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4c397ea5d79f04bb2071f6e49148ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grenadeVFXPrefab: {fileID: 0}
+  _grenadeVFXPrefab: {fileID: 5405596987551681514, guid: e6a90ed452262e14581c023665ec47ce, type: 3}
   _shootImpulse: 500
   _explotionTime: 2
-  _explotionRadius: 4
+  _explotionRadius: 3
   _amountOfTicks: 3
   _tickTime: 0.1
   _torqueAmount: 0.5

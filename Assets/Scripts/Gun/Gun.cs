@@ -45,7 +45,7 @@ public class Gun : MonoBehaviour
         OnShoot += GunScreenShake;
         OnShoot += MuzzleFlash;
         OnLaunchGrenade += LaunchGrenade;
-        OnLaunchGrenade += UpdateLastFireTime;
+        OnLaunchGrenade += UpdateLastGrenadeFireTime;
     }
 
     private void OnDisable()
@@ -56,7 +56,7 @@ public class Gun : MonoBehaviour
         OnShoot -= GunScreenShake;
         OnShoot -= MuzzleFlash;
         OnLaunchGrenade += LaunchGrenade;
-        OnLaunchGrenade -= UpdateLastFireTime;
+        OnLaunchGrenade -= UpdateLastGrenadeFireTime;
     }
 
     private void CreateBulletPool()
@@ -109,12 +109,12 @@ public class Gun : MonoBehaviour
 
     private void UpdateLastFireTime()
     {
-        _lastFireTime = Time.time + _gunGreenadeCD;
+        _lastFireTime = Time.time + _gunFireCD;
     }
 
     private void UpdateLastGrenadeFireTime()
     {
-        _lastFireTime = Time.time + _gunFireCD;
+        _lastFireTime = Time.time + _gunGreenadeCD;
     }
 
     private void FireAnimation()

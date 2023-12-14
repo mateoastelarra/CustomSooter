@@ -43,15 +43,8 @@ public class Grenade : MonoBehaviour
         _fireDirection = (mousePos - bulletSpawnPos).normalized;
     }
 
-    private void FixedUpdate()
-    {
-        
-        //_rigidBody.AddTorque(_torqueAmount, ForceMode2D.Impulse);
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
-    {
-        
+    { 
         if (other.gameObject.GetComponent<IDamageable>() != null)
         {
             Explode();
@@ -84,8 +77,7 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-        Debug.Log("Kaboooom!!");
-        //Instantiate(_grenadeVFXPrefab, transform.position, transform.rotation);
+        Instantiate(_grenadeVFXPrefab, transform.position, transform.rotation);
 
         Collider2D[] inExplotionZoneColliders = Physics2D.OverlapCircleAll(transform.position, _explotionRadius);
         foreach (Collider2D collider in inExplotionZoneColliders)
