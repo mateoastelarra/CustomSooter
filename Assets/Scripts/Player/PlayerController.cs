@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _gravityDelay = .2f;
     [SerializeField] private float _coyoteTime = 0.5f;
     [SerializeField] private float _jetpackTime = 0.6f;
-    [SerializeField] private float _jetPackStrength = 11f;
+    [SerializeField] private float _jetpackStrength = 11f;
 
     private float _timeInAir, _coyoteTimer;
     private bool _doubleJumpAvailable;
@@ -194,15 +194,15 @@ public class PlayerController : MonoBehaviour
 
         float jetTime = 0;
         _jetPackTrailRenderer.emitting = true;
+
         while (jetTime < _jetpackTime)
         {
             jetTime += Time.deltaTime;
-            _rigidBody.velocity = Vector2.up * _jetPackStrength;
+            _rigidBody.velocity = Vector2.up * _jetpackStrength;
             yield return null;
         }
 
         _jetPackTrailRenderer.emitting = false;
-
         _jetPackCoroutine = null;
         
     }

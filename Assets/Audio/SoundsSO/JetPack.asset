@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 455bb65524187b148981d97f81d17ebf, type: 3}
-  m_Name: Splatter2
+  m_Name: JetPack
   m_EditorClassIdentifier: 
   AudioType: 0
-  Clip: {fileID: 8300000, guid: b1eb720f47e77844a9722dd088efd86b, type: 3}
+  Clip: {fileID: 8300000, guid: e2a3194a64ca818469e9841da3477d02, type: 3}
   Loop: 0
-  RandomizePitch: 1
-  RandomPitchModifier: 0.117
-  Volume: 4
-  Pitch: 1.06
+  RandomizePitch: 0
+  RandomPitchModifier: 0.8
+  Volume: 1
+  Pitch: 1

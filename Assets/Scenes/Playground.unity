@@ -5954,7 +5954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &738951317
 Transform:
   m_ObjectHideFlags: 0
@@ -18547,7 +18547,7 @@ Transform:
   m_GameObject: {fileID: 1837934580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74, y: -0.62, z: 0}
+  m_LocalPosition: {x: -0.788, y: -0.688, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18948,7 +18948,7 @@ MonoBehaviour:
   _gravityDelay: 0.15
   _coyoteTime: 0.1
   _jetpackTime: 0.6
-  _jetPackStrength: 11
+  _jetpackStrength: 11
 --- !u!70 &2011273897
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
