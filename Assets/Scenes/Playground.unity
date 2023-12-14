@@ -17579,8 +17579,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPoint: {fileID: 710606986}
   _bulletPrefab: {fileID: -5611149099131491127, guid: 9dca18bc1fee05d488922a753a58ca8d, type: 3}
-  _gunFireCD: 0.2
   _muzzleFlash: {fileID: 18925722}
+  _grenadePrefab: {fileID: 3266549262393724243, guid: 8f5e1dfbbf8a7ff4e91c51b070540886, type: 3}
+  _gunFireCD: 0.2
   _muzzleFlashTime: 0.02
 --- !u!95 &1414218016
 Animator:

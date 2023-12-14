@@ -7,11 +7,13 @@ using System.Collections;
 public class Gun : MonoBehaviour
 {
     public static Action OnShoot;
+    public static Action OnLaunchGrenade;
 
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private Bullet _bulletPrefab;
-    [SerializeField] private float _gunFireCD = 0.5f;
     [SerializeField] private GameObject _muzzleFlash;
+    [SerializeField] private Grenade _grenadePrefab;
+    [SerializeField] private float _gunFireCD = 0.5f; 
     [SerializeField] private float _muzzleFlashTime = .05f;
 
     private Coroutine _muzzleFlashCoroutine;
@@ -41,6 +43,8 @@ public class Gun : MonoBehaviour
         OnShoot += FireAnimation;
         OnShoot += GunScreenShake;
         OnShoot += MuzzleFlash;
+        OnLaunchGrenade += LaunchGrenade;
+        OnLaunchGrenade += UpdateLastFireTime;
     }
 
     private void OnDisable()
@@ -50,6 +54,8 @@ public class Gun : MonoBehaviour
         OnShoot -= FireAnimation;
         OnShoot -= GunScreenShake;
         OnShoot -= MuzzleFlash;
+        OnLaunchGrenade += LaunchGrenade;
+        OnLaunchGrenade -= UpdateLastFireTime;
     }
 
     private void CreateBulletPool()
@@ -82,12 +88,22 @@ public class Gun : MonoBehaviour
         {
             OnShoot?.Invoke();    
         }
+        else if (Input.GetMouseButton(2) && Time.time >= _lastFireTime)
+        {
+            OnLaunchGrenade?.Invoke();
+        }
     }
 
     private void ShootProjectile()
     {
         Bullet newBullet = _bulletPool.Get();
         newBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
+    }
+
+    private void LaunchGrenade()
+    {
+        Grenade newGrenade = Instantiate(_grenadePrefab, transform.position, Quaternion.identity);
+        newGrenade.Init(this, _bulletSpawnPoint.position, _mousePos);
     }
 
     private void UpdateLastFireTime()
