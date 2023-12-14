@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4c397ea5d79f04bb2071f6e49148ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootImpulse: 20
+  _shootImpulse: 500
   _explotionTime: 2
   _explotionRadius: 4
   _amountOfTicks: 3
-  _torqueAmount: 0.01
+  _torqueAmount: 0.5
   _damageAmount: 3
   _knockBackThrust: 20
   _grenadeVFXPrefab: {fileID: 0}
@@ -154,7 +154,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1

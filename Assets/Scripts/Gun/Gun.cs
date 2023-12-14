@@ -13,7 +13,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private GameObject _muzzleFlash;
     [SerializeField] private Grenade _grenadePrefab;
-    [SerializeField] private float _gunFireCD = 0.5f; 
+    [SerializeField] private float _gunFireCD = 0.5f;
+    [SerializeField] private float _gunGreenadeCD = 2f;
     [SerializeField] private float _muzzleFlashTime = .05f;
 
     private Coroutine _muzzleFlashCoroutine;
@@ -107,6 +108,11 @@ public class Gun : MonoBehaviour
     }
 
     private void UpdateLastFireTime()
+    {
+        _lastFireTime = Time.time + _gunGreenadeCD;
+    }
+
+    private void UpdateLastGrenadeFireTime()
     {
         _lastFireTime = Time.time + _gunFireCD;
     }

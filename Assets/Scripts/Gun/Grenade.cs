@@ -21,6 +21,13 @@ public class Grenade : MonoBehaviour
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        
+    }
+
+    private void Start()
+    {
+        _rigidBody.AddForce(_fireDirection * _shootImpulse);
+        _rigidBody.AddTorque(_torqueAmount, ForceMode2D.Impulse);
         GrenadeTicking();
     }
 
@@ -33,8 +40,8 @@ public class Grenade : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidBody.AddForce(_fireDirection * _shootImpulse);
-        _rigidBody.AddTorque(_torqueAmount, ForceMode2D.Impulse);
+        
+        //_rigidBody.AddTorque(_torqueAmount, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
