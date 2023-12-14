@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
     {
 
         float jetTime = 0;
+        _jetPackTrailRenderer.emitting = true;
         while (jetTime < _jetpackTime)
         {
             jetTime += Time.deltaTime;
@@ -200,7 +201,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        
+        _jetPackTrailRenderer.emitting = false;
 
         _jetPackCoroutine = null;
         
