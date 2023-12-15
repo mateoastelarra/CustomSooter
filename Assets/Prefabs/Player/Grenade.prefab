@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4c397ea5d79f04bb2071f6e49148ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grenadeVFXPrefab: {fileID: 5405596987551681514, guid: e6a90ed452262e14581c023665ec47ce, type: 3}
+  _grenadeVFXPrefab: {fileID: 7371851854010717418, guid: 7dca8a8f88f3b9348afd1fd980e7236d, type: 3}
   _shootImpulse: 500
   _explotionTime: 2
   _explotionRadius: 3
@@ -108,7 +108,6 @@ MonoBehaviour:
   _tickTime: 0.1
   _torqueAmount: 0.5
   _damageAmount: 3
-  _knockBackThrust: 20
 --- !u!58 &2190082286841939707
 CircleCollider2D:
   m_ObjectHideFlags: 0

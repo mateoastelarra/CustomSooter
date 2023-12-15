@@ -17,7 +17,6 @@ public class Grenade : MonoBehaviour
     [SerializeField] private float _tickTime = 0.1f;
     [SerializeField] private float _torqueAmount;
     [SerializeField] private int _damageAmount = 3;
-    [SerializeField] private float _knockBackThrust = 20f;
 
     private Vector2 _fireDirection;
     private Gun _gun;
@@ -108,12 +107,11 @@ public class Grenade : MonoBehaviour
         Collider2D[] inExplotionZoneColliders = Physics2D.OverlapCircleAll(transform.position, _explotionRadius);
         foreach (Collider2D collider in inExplotionZoneColliders)
         {
-            IHitable iHitable = collider.gameObject.GetComponent<IHitable>();
-            iHitable?.TakeHit();
+            //IHitable iHitable = collider.gameObject.GetComponent<IHitable>();
+            //iHitable?.TakeHit();
 
             IDamageable iDamageable = collider.gameObject.GetComponent<IDamageable>();
-            iDamageable?.TakeDamage(_damageAmount, _knockBackThrust);
-
+            iDamageable?.TakeDamage(_damageAmount);
         }
     }
 }
