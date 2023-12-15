@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         Gun.OnShoot += Gun_OnShoot;
+        Gun.OnLaunchGrenade += Gun_OnLaunchGrenade;
         PlayerController.OnJump += PlayerController_OnJump;
         PlayerController.OnJetpack += PlayerController_OnJetpack;
         Health.OnDeath += Health_OnDeath;
@@ -138,14 +139,19 @@ public class AudioManager : MonoBehaviour
         PlayRandomSound(_soundCollectionsSO.Splat);
     }
 
+    private void Gun_OnLaunchGrenade()
+    {
+        PlayRandomSound(_soundCollectionsSO.GrenadeLaunch);
+    }
+
     private void Grenade_OnTick()
     {
-
+        PlayRandomSound(_soundCollectionsSO.GrenadeTick);
     }
 
     private void Grenade_OnExplode()
     {
-
+        PlayRandomSound(_soundCollectionsSO.GrenadeExplode);
     }
     #endregion
 

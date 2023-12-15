@@ -9,7 +9,7 @@ public class SoundCollectionsSO : ScriptableObject
     public SoundSO[] Jump;
     public SoundSO[] Splat;
     public SoundSO[] Jetpack;
-    public SoundSO[] GrenadeShoot;
+    public SoundSO[] GrenadeLaunch;
     public SoundSO[] GrenadeTick;
     public SoundSO[] GrenadeExplode;
 
