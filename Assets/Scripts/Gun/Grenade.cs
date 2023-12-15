@@ -1,10 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class Grenade : MonoBehaviour
 {
+    public static Action OnTick;
+    public static Action OnExplode;
+
     [SerializeField] private GameObject _grenadeVFXPrefab;
     [SerializeField] private float _shootImpulse = 20f;
     [SerializeField] private float _explotionTime = 2f;
@@ -33,7 +36,7 @@ public class Grenade : MonoBehaviour
     {
         _rigidBody.AddForce(_fireDirection * _shootImpulse);
         _rigidBody.AddTorque(_torqueAmount, ForceMode2D.Impulse);
-        GrenadeTicking();
+        StartCoroutine(GrenadeRoutine());
     }
 
     public void Init(Gun gun, Vector2 bulletSpawnPos, Vector2 mousePos)
@@ -49,11 +52,6 @@ public class Grenade : MonoBehaviour
         {
             Explode();
         }
-    }
-
-    private void GrenadeTicking()
-    {
-        StartCoroutine(GrenadeRoutine());
     }
 
     private IEnumerator GrenadeRoutine()

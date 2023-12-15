@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -27,7 +25,9 @@ public class AudioManager : MonoBehaviour
         PlayerController.OnJetpack += PlayerController_OnJetpack;
         Health.OnDeath += Health_OnDeath;
         DiscoballManager.OnStartParty += DiscoPartyMusic;
-        DiscoballManager.OnFinishParty += FightMusic;   
+        DiscoballManager.OnFinishParty += FightMusic;
+        Grenade.OnTick += Grenade_OnTick;
+        Grenade.OnExplode += Grenade_OnExplode;
     }
 
     private void OnDisable()
@@ -37,7 +37,9 @@ public class AudioManager : MonoBehaviour
         PlayerController.OnJetpack -= PlayerController_OnJetpack;
         Health.OnDeath -= Health_OnDeath;
         DiscoballManager.OnStartParty -= DiscoPartyMusic;
-        DiscoballManager.OnFinishParty -= FightMusic;   
+        DiscoballManager.OnFinishParty -= FightMusic;
+        Grenade.OnTick -= Grenade_OnTick;
+        Grenade.OnExplode -= Grenade_OnExplode;
     }
     #endregion
 
@@ -134,6 +136,16 @@ public class AudioManager : MonoBehaviour
     private void Health_OnDeath(Health sender)
     {
         PlayRandomSound(_soundCollectionsSO.Splat);
+    }
+
+    private void Grenade_OnTick()
+    {
+
+    }
+
+    private void Grenade_OnExplode()
+    {
+
     }
     #endregion
 
