@@ -25,16 +25,26 @@ public class Gun : MonoBehaviour
 
     private CinemachineImpulseSource _impulseSource;
     private Animator _animator;
+    private PlayerInput _playerInput;
+    private FrameInput _frameInput;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _impulseSource = GetComponent<CinemachineImpulseSource>();
+        _playerInput = GetComponentInParent<PlayerInput>();
     }
 
     private void Start()
     {
         CreateBulletPool();
+    }
+
+    private void Update()
+    {
+        Shoot();
+        RotateGun();
+        GatherInput();
     }
 
     private void OnEnable()
@@ -77,21 +87,20 @@ public class Gun : MonoBehaviour
         if (bullet.isActiveAndEnabled) { _bulletPool.Release(bullet); } 
     }
 
-    private void Update()
+    private void GatherInput()
     {
-        Shoot();
-        RotateGun();
+        _frameInput = _playerInput.FrameInput;
     }
 
     private void Shoot()
     {
-        if (Input.GetMouseButton(0) && Time.time >= _lastFireTime) 
+        if (_frameInput.FireGrenade && Time.time >= _lastFireTime) 
         {
-            OnShoot?.Invoke();    
+            OnLaunchGrenade?.Invoke();    
         }
-        else if (Input.GetMouseButton(2) && Time.time >= _lastFireTime)
+        else if (_frameInput.FireGun && Time.time >= _lastFireTime)
         {
-            OnLaunchGrenade?.Invoke();
+            OnShoot?.Invoke();
         }
     }
 

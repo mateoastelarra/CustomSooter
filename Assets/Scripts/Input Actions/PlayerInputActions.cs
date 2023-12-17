@@ -53,6 +53,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3ddcbdf-6d7f-4ccb-b18d-d81c01cefaba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireGrenade"",
+                    ""type"": ""Button"",
+                    ""id"": ""14561d80-5754-4262-9e95-b3b9f7c5fa52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +150,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Jetpack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dee76f5-8e36-4630-9d28-a08669534ecb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb5f62bc-51ec-4faf-8b65-88c5a4fe4e1a"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireGrenade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +183,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Jetpack = m_Player.FindAction("Jetpack", throwIfNotFound: true);
+        m_Player_FireGun = m_Player.FindAction("FireGun", throwIfNotFound: true);
+        m_Player_FireGrenade = m_Player.FindAction("FireGrenade", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +249,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Jetpack;
+    private readonly InputAction m_Player_FireGun;
+    private readonly InputAction m_Player_FireGrenade;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -214,6 +258,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Jetpack => m_Wrapper.m_Player_Jetpack;
+        public InputAction @FireGun => m_Wrapper.m_Player_FireGun;
+        public InputAction @FireGrenade => m_Wrapper.m_Player_FireGrenade;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +278,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jetpack.started += instance.OnJetpack;
             @Jetpack.performed += instance.OnJetpack;
             @Jetpack.canceled += instance.OnJetpack;
+            @FireGun.started += instance.OnFireGun;
+            @FireGun.performed += instance.OnFireGun;
+            @FireGun.canceled += instance.OnFireGun;
+            @FireGrenade.started += instance.OnFireGrenade;
+            @FireGrenade.performed += instance.OnFireGrenade;
+            @FireGrenade.canceled += instance.OnFireGrenade;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +297,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jetpack.started -= instance.OnJetpack;
             @Jetpack.performed -= instance.OnJetpack;
             @Jetpack.canceled -= instance.OnJetpack;
+            @FireGun.started -= instance.OnFireGun;
+            @FireGun.performed -= instance.OnFireGun;
+            @FireGun.canceled -= instance.OnFireGun;
+            @FireGrenade.started -= instance.OnFireGrenade;
+            @FireGrenade.performed -= instance.OnFireGrenade;
+            @FireGrenade.canceled -= instance.OnFireGrenade;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +325,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnJetpack(InputAction.CallbackContext context);
+        void OnFireGun(InputAction.CallbackContext context);
+        void OnFireGrenade(InputAction.CallbackContext context);
     }
 }
