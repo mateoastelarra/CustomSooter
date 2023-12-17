@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Cinemachine;
 
 public class Grenade : MonoBehaviour
 {
@@ -22,11 +23,13 @@ public class Grenade : MonoBehaviour
     private Gun _gun;
     private Rigidbody2D _rigidBody;
     private Light2D _tickingLight;
+    private CinemachineImpulseSource _impulseSource;
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _tickingLight = GetComponentInChildren<Light2D>();
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void OnEnable()
@@ -34,6 +37,7 @@ public class Grenade : MonoBehaviour
         OnTick += TickLight;
         OnExplode += ExplodeVFX;
         OnExplode += DamageEnemies;
+        OnExplode += GrenadeScreenShake;
     }
 
     private void OnDisable()
@@ -41,6 +45,7 @@ public class Grenade : MonoBehaviour
         OnTick -= TickLight;
         OnExplode -= ExplodeVFX;
         OnExplode -= DamageEnemies;
+        OnExplode -= GrenadeScreenShake;
     }
 
     private void Start()
@@ -113,5 +118,10 @@ public class Grenade : MonoBehaviour
             IDamageable iDamageable = collider.gameObject.GetComponent<IDamageable>();
             iDamageable?.TakeDamage(_damageAmount);
         }
+    }
+
+    private void GrenadeScreenShake()
+    {
+        _impulseSource.GenerateImpulse();
     }
 }
