@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2190082286841939707}
   - component: {fileID: 409703474177239696}
   - component: {fileID: 7124460465091074090}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &7124460465091074090
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.1, y: 0.1, z: 0}
+  m_DefaultVelocity: {x: 0.25, y: 0.25, z: 0}
 --- !u!1 &6192466499981806142
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5930952156928541614}
   - component: {fileID: 8668939638807530086}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

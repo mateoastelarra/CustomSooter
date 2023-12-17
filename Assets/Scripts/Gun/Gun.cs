@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
     private static readonly int FIRE_HASH = Animator.StringToHash("Fire");
     private Vector2 _mousePos;
     private float _lastFireTime = 0f;
+    private float _lastGrenadeTime = 0f;
 
     private CinemachineImpulseSource _impulseSource;
     private Animator _animator;
@@ -65,7 +66,7 @@ public class Gun : MonoBehaviour
         OnShoot -= FireAnimation;
         OnShoot -= GunScreenShake;
         OnShoot -= MuzzleFlash;
-        OnLaunchGrenade += LaunchGrenade;
+        OnLaunchGrenade -= LaunchGrenade;
         OnLaunchGrenade -= UpdateLastGrenadeFireTime;
     }
 
@@ -94,7 +95,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        if (_frameInput.FireGrenade && Time.time >= _lastFireTime) 
+        if (_frameInput.FireGrenade && Time.time >= _lastGrenadeTime) 
         {
             OnLaunchGrenade?.Invoke();    
         }
@@ -123,7 +124,7 @@ public class Gun : MonoBehaviour
 
     private void UpdateLastGrenadeFireTime()
     {
-        _lastFireTime = Time.time + _gunGreenadeCD;
+        _lastGrenadeTime = Time.time + _gunGreenadeCD;
     }
 
     private void FireAnimation()
