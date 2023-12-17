@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e652642db6260344cb636626629dc1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _splatterPrefab: {fileID: 4276694785811083747, guid: 0b25713cd0fa1084597ead37a3effc30, type: 3}
+  _splatterPrefab: {fileID: 4276694785811083747, guid: 0477272b4a9496d468bec8e7ae7982e5, type: 3}
   _deathVFXPrefab: {fileID: 7442587905238565160, guid: 5ee90392b33219d498da20a9ebafecad, type: 3}
   _startingHealth: 20
 --- !u!61 &2832387929957637719

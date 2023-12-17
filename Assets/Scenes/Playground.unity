@@ -6098,12 +6098,13 @@ GameObject:
   - component: {fileID: 2011273899}
   - component: {fileID: 2011273892}
   - component: {fileID: 2011273900}
-  - component: {fileID: 2011273891}
-  - component: {fileID: 2011273897}
-  - component: {fileID: 2011273889}
   - component: {fileID: 2011273888}
   - component: {fileID: 2011273898}
   - component: {fileID: 2011273902}
+  - component: {fileID: 2011273903}
+  - component: {fileID: 2011273891}
+  - component: {fileID: 2011273897}
+  - component: {fileID: 2011273889}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -17580,10 +17581,11 @@ MonoBehaviour:
   _bulletSpawnPoint: {fileID: 710606986}
   _bulletPrefab: {fileID: -5611149099131491127, guid: 9dca18bc1fee05d488922a753a58ca8d, type: 3}
   _muzzleFlash: {fileID: 18925722}
-  _grenadePrefab: {fileID: 3266549262393724243, guid: 8f5e1dfbbf8a7ff4e91c51b070540886, type: 3}
   _gunFireCD: 0.2
-  _gunGreenadeCD: 1
   _muzzleFlashTime: 0.02
+  _grenadesAtStart: 3
+  _grenadePrefab: {fileID: 3266549262393724243, guid: 8f5e1dfbbf8a7ff4e91c51b070540886, type: 3}
+  _gunGreenadeCD: 1
 --- !u!95 &1414218016
 Animator:
   serializedVersion: 5
@@ -18925,7 +18927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _splatterPrefab: {fileID: 0}
-  _deathVFXPrefab: {fileID: 0}
+  _deathVFXPrefab: {fileID: 3838826830072171913, guid: eb1d1146de674a7488572878fc8be505, type: 3}
   _startingHealth: 5
 --- !u!114 &2011273896
 MonoBehaviour:
@@ -19098,6 +19100,21 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0.05, y: 0.08, z: 0}
+--- !u!114 &2011273903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817729410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fc98c4b696f746ab2c6b82ea4ac09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 2100000, guid: 6beac4871e2842142b2452e711ef7382, type: 2}
+  _whiteFlashMaterial: {fileID: 2100000, guid: ed268504d645332479bd0004d3bdac92, type: 2}
+  _flashTime: 0.1
 --- !u!1 &2043640393
 GameObject:
   m_ObjectHideFlags: 0
