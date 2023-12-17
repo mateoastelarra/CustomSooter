@@ -3,6 +3,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance;
+
     [Range(0,2)]
     [SerializeField] float _masterVolume = 1f;
     [SerializeField] float _destroyTimeBonus = 0.1f; // So that sound doesnt clips when destroyed.
@@ -13,6 +15,12 @@ public class AudioManager : MonoBehaviour
     private AudioSource _currentMusic;
 
     #region Unity Methods
+
+    private void Awake()
+    {
+        if (Instance == null) { Instance = this; }    
+    }
+
     private void Start()
     {
         FightMusic();
@@ -27,8 +35,6 @@ public class AudioManager : MonoBehaviour
         Health.OnDeath += Health_OnDeath;
         DiscoballManager.OnStartParty += DiscoPartyMusic;
         DiscoballManager.OnFinishParty += FightMusic;
-        Grenade.OnTick += Grenade_OnTick;
-        Grenade.OnExplode += Grenade_OnExplode;
     }
 
     private void OnDisable()
@@ -39,8 +45,6 @@ public class AudioManager : MonoBehaviour
         Health.OnDeath -= Health_OnDeath;
         DiscoballManager.OnStartParty -= DiscoPartyMusic;
         DiscoballManager.OnFinishParty -= FightMusic;
-        Grenade.OnTick -= Grenade_OnTick;
-        Grenade.OnExplode -= Grenade_OnExplode;
     }
     #endregion
 
@@ -144,12 +148,12 @@ public class AudioManager : MonoBehaviour
         PlayRandomSound(_soundCollectionsSO.GrenadeLaunch);
     }
 
-    private void Grenade_OnTick()
+    public void Grenade_OnTick()
     {
         PlayRandomSound(_soundCollectionsSO.GrenadeTick);
     }
 
-    private void Grenade_OnExplode()
+    public void Grenade_OnExplode()
     {
         PlayRandomSound(_soundCollectionsSO.GrenadeExplode);
     }
