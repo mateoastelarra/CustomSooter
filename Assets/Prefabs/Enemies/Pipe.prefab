@@ -179,6 +179,8 @@ GameObject:
   - component: {fileID: 86441440655706981}
   - component: {fileID: 722285979208899143}
   - component: {fileID: 2232004243994147727}
+  - component: {fileID: 7088482728831465651}
+  - component: {fileID: 3377954047314064778}
   - component: {fileID: 2832387929957637719}
   m_Layer: 0
   m_Name: Pipe
@@ -235,6 +237,36 @@ MonoBehaviour:
   - {r: 0.41304737, g: 0.7103941, b: 0.9622642, a: 1}
   - {r: 0.8999107, g: 0.43921566, b: 0.9607843, a: 1}
   - {r: 0.38823527, g: 0.972549, b: 0.5115094, a: 1}
+--- !u!114 &7088482728831465651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917474411122021371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6fc98c4b696f746ab2c6b82ea4ac09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultMaterial: {fileID: 2100000, guid: 6beac4871e2842142b2452e711ef7382, type: 2}
+  _whiteFlashMaterial: {fileID: 2100000, guid: ed268504d645332479bd0004d3bdac92, type: 2}
+  _flashTime: 0.1
+--- !u!114 &3377954047314064778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917474411122021371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e652642db6260344cb636626629dc1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _splatterPrefab: {fileID: 4276694785811083747, guid: 0b25713cd0fa1084597ead37a3effc30, type: 3}
+  _deathVFXPrefab: {fileID: 7442587905238565160, guid: 5ee90392b33219d498da20a9ebafecad, type: 3}
+  _startingHealth: 20
 --- !u!61 &2832387929957637719
 BoxCollider2D:
   m_ObjectHideFlags: 0
