@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _muzzleFlashTime = .05f;
 
     [Header("Grenade")]
+    [SerializeField] [Range(0, 20)] private int _grenadesAtStart = 3;
     [SerializeField] private Grenade _grenadePrefab;
     [SerializeField] private float _gunGreenadeCD = 2f;
     
@@ -28,6 +29,7 @@ public class Gun : MonoBehaviour
     private Vector2 _mousePos;
     private float _lastFireTime = 0f;
     private float _lastGrenadeTime = 0f;
+    private int _currentGrenades;
 
     private CinemachineImpulseSource _impulseSource;
     private Animator _animator;
@@ -43,6 +45,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        _currentGrenades = _grenadesAtStart;
         GatherInput();
         CreateBulletPool();
     }
@@ -103,7 +106,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        if (_frameInput.FireGrenade && Time.time >= _lastGrenadeTime) 
+        if (_frameInput.FireGrenade && Time.time >= _lastGrenadeTime && _currentGrenades > 0) 
         {
             OnLaunchGrenade?.Invoke();    
         }
@@ -123,6 +126,7 @@ public class Gun : MonoBehaviour
     {
         Grenade newGrenade = Instantiate(_grenadePrefab, _bulletSpawnPoint.position, Quaternion.identity);
         newGrenade.Init(this, _bulletSpawnPoint.position, _mousePos);
+        _currentGrenades -= 1;
     }
 
     private void UpdateLastFireTime()

@@ -10,11 +10,14 @@ public class Grenade : MonoBehaviour
     public Action OnExplode;
 
     [SerializeField] private GameObject _grenadeVFXPrefab;
+    
     [SerializeField] private float _launchForce = 20f;
     [SerializeField] private float _torqueAmount = 2f;
+    [Header("Explotion and Damage")]
     [SerializeField] private float _explotionRadius = 1f;
     [SerializeField] private LayerMask _enemyLayerMask;
     [SerializeField] private int _damageAmount = 3;
+    [Header("Tick and Beep")]
     [SerializeField] [Range(1, 3)]  private float _explotionTime = 2f;
     [SerializeField] private int _amountOfTicks = 3;
     [SerializeField] private float _tickTime = 0.1f; 
