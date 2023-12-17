@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour
             Move = _move.ReadValue<Vector2>(),
             Jump = _jump.WasPressedThisFrame(),
             Jetpack = _jetpack.WasPressedThisFrame(),
-            FireGun= _fireGun.WasPerformedThisFrame(),
+            FireGun= _fireGun.IsPressed(),
             FireGrenade = _fireGrenade.WasPerformedThisFrame(),
         };
     }
