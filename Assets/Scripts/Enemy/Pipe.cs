@@ -1,20 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class Pipe : MonoBehaviour, IDamageable
+public class Pipe : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private float _spawnTimer = 3f;
 
     private ColorChanger _colorChanger;
-    private Health _health;
-    private Flash _flash;
 
     private void Awake()
     {
         _colorChanger = GetComponent<ColorChanger>();
-        _health = GetComponent<Health>();
-        _flash = GetComponent<Flash>();
     }
 
     private void Start()
@@ -33,13 +29,4 @@ public class Pipe : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int damageAmount, float knockbackTrhust)
-    {
-        _health.TakeDamage(damageAmount);
-    }
-
-    public void TakeHit()
-    {
-        _flash.StartFlash();
-    }
 }

@@ -121,7 +121,7 @@ public class Grenade : MonoBehaviour
         foreach (Collider2D collider in enemyHits)
         {
             IDamageable iDamageable = collider.gameObject.GetComponent<IDamageable>();
-            iDamageable?.TakeDamage(_damageAmount);
+            iDamageable?.TakeDamage(_fireDirection, _damageAmount);
         }
     }
 

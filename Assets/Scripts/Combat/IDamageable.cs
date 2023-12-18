@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IDamageable: IHitable
 {
-    void TakeDamage(int damageAmount, float knockbackTrhust = 0);
+    void TakeDamage(Vector2 damageSourceDirection, int damageAmount, float knockbackTrhust = 0);
 }
