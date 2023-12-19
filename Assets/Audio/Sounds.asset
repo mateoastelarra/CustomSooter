@@ -27,6 +27,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ebd23dd40e0e244c9783f93de1fedc1, type: 2}
   GrenadeExplode:
   - {fileID: 11400000, guid: c91a5a8772034e44e99d27c47bd002e2, type: 2}
+  PlayerHit:
+  - {fileID: 11400000, guid: 49d0d587da850294e9e0282612705761, type: 2}
   FightMusic:
   - {fileID: 11400000, guid: f437e300eb37f874c9d7bd4a9d89dd88, type: 2}
   DiscoPartyMusic:

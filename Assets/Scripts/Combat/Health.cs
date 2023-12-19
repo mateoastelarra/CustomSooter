@@ -15,7 +15,6 @@ public class Health : MonoBehaviour, IDamageable
     private Knockback _knockback;
     private Flash _flash;
     private Health _health;
-    private bool _isInmune;
     private int _currentHealth;
 
     private void Awake()
@@ -23,24 +22,6 @@ public class Health : MonoBehaviour, IDamageable
         _knockback = GetComponent<Knockback>();
         _flash = GetComponent<Flash>();
         _health = GetComponent<Health>();
-    }
-
-    private void OnEnable()
-    {
-        if (_knockback)
-        {
-            _knockback.OnKnockBackStart += BeInmune;
-            _knockback.OnKnockBackEnd += StopBeingInmune;
-        }    
-    }
-
-    private void OnDisable()
-    {
-        if(_knockback)
-        {
-            _knockback.OnKnockBackStart -= BeInmune;
-            _knockback.OnKnockBackEnd -= StopBeingInmune;
-        }  
     }
 
     private void Start() {
@@ -52,7 +33,6 @@ public class Health : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int amount) {
-        if (_isInmune) { return; }
         _currentHealth -= amount;
 
         if (_currentHealth <= 0) {
@@ -72,14 +52,4 @@ public class Health : MonoBehaviour, IDamageable
         _flash.StartFlash();
     }
 
-    public void BeInmune()
-    {
-        if (gameObject.CompareTag("Player"))//Only player gets damage cool down by being invincible
-            _isInmune = true;
-    }
-
-    public void StopBeingInmune()
-    {
-        _isInmune = false;
-    }
 }

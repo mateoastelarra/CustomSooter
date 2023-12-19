@@ -54,16 +54,16 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            IHitable iHitable = collision.gameObject.GetComponent<IHitable>();
-            iHitable?.TakeHit();
+        PlayerHit player = collision.gameObject.GetComponent<PlayerHit>();
+        if (!player || player.IsImmune) { return; }
 
-            IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
-            iDamageable?.TakeDamage(transform.position, _damageAmount, _knockBackThrust);
+        IHitable iHitable = collision.gameObject.GetComponent<IHitable>();
+        iHitable?.TakeHit();
 
-            PlayerController.OnPlayerHit?.Invoke();
-        }
+        IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
+        iDamageable?.TakeDamage(transform.position, _damageAmount, _knockBackThrust);
+
+        PlayerHit.OnPlayerHit?.Invoke();
     }
 
 }

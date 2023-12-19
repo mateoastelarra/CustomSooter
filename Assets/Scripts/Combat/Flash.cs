@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Flash : MonoBehaviour
 {
+    public float FlashTime => _flashTime;
+
     [SerializeField] private Material _defaultMaterial;
     [SerializeField] private Material _whiteFlashMaterial;
     [SerializeField] private float _flashTime = .1f;

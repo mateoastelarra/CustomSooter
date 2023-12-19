@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 
     public static Action OnJump;
     public static Action OnJetpack;
-    public static Action OnPlayerHit;
 
     public static PlayerController Instance;
 
@@ -22,10 +21,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _coyoteTime = 0.5f;
     [SerializeField] private float _jetpackTime = 0.6f;
     [SerializeField] private float _jetpackStrength = 11f;
-
+    
     private float _timeInAir, _coyoteTimer;
     private bool _doubleJumpAvailable;
-
+    
     private PlayerInput _playerInput;
     private FrameInput _frameInput;
     private Movement _movement;

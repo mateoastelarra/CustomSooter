@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerHit
   m_EditorClassIdentifier: 
   AudioType: 0
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: e17fc9666f83fe748837b8c93543c1e9, type: 3}
   Loop: 0
   RandomizePitch: 0
   RandomPitchModifier: 0.8
