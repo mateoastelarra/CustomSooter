@@ -20,23 +20,13 @@ public class ScoreManager : MonoBehaviour
 
     private void AddScore(Health sender)
     {
+        if (sender.gameObject.CompareTag("Player")) { return; }
         _currentScore += sender.StartingHealth;
         UpdateScoreText();
     }
 
     private void UpdateScoreText()
     {
-        if (_currentScore < 10)
-        {
-            _scoreText.text = "00"+_currentScore.ToString();
-        }
-        else if (_currentScore < 100)
-        {
-            _scoreText.text = "0" + _currentScore.ToString();
-        }
-        else
-        {
-            _scoreText.text = _currentScore.ToString();
-        }   
+        _scoreText.text = _currentScore.ToString("D3");   
     }
 }
