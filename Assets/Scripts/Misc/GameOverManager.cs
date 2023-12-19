@@ -4,20 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
 
-public class Fade : MonoBehaviour
+public class GameOverManager: MonoBehaviour
 {
-    [SerializeField] GameObject _playerPrefab;
-    [SerializeField] Transform _respawnPoint;
+    [SerializeField] private GameObject _playerPrefab;
+    [SerializeField] private Transform _respawnPoint;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
-    [SerializeField] float _fadeTime = 1.5f;
-    [SerializeField] float _deactivateSpawnPointTime = 3f;
+    [SerializeField] private Image _image;
+    [SerializeField] private float _fadeTime = 1.5f;
+    [SerializeField] private float _deactivateSpawnPointTime = 3f;
 
-    private Image _image;
     private SpriteRenderer _respawnPointSR;
-    
+
     private void Awake()
     {
-        _image = GetComponent<Image>();
         _respawnPointSR = _respawnPoint.GetComponent<SpriteRenderer>();
     }
 
@@ -45,7 +44,7 @@ public class Fade : MonoBehaviour
         StartCoroutine(DeactivateRespawnPoint());
     }
 
-    private IEnumerator FadeRoutine(float targetAlpha, Sprite sprite= null)
+    private IEnumerator FadeRoutine(float targetAlpha, Sprite sprite = null)
     {
         float elapsedTime = 0;
         float startValue = _image.color.a;
@@ -75,9 +74,9 @@ public class Fade : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float newAlpha = Mathf.Lerp(startValue, 0, elapsedTime / _fadeTime);
-            _respawnPointSR.color = new Color(_respawnPointSR.color.r, 
-                                              _respawnPointSR.color.g, 
-                                              _respawnPointSR.color.b, 
+            _respawnPointSR.color = new Color(_respawnPointSR.color.r,
+                                              _respawnPointSR.color.g,
+                                              _respawnPointSR.color.b,
                                               newAlpha);
             yield return null;
         }

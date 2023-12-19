@@ -19,6 +19,12 @@ public class PlayerHit : MonoBehaviour
         _flash = GetComponent<Flash>();
     }
 
+    private void Start()
+    {
+        StartCoroutine(HitImmunityRoutine());
+        StartCoroutine(BlinkingRoutine());
+    }
+
     private void OnEnable()
     {
         OnPlayerHit += HitImmunity;
@@ -33,8 +39,8 @@ public class PlayerHit : MonoBehaviour
 
     private void OnDestroy()
     {
-        Fade fade = FindFirstObjectByType<Fade>();
-        fade?.FadeInAndOut();
+        GameOverManager gameOverManager = FindFirstObjectByType<GameOverManager>();
+        gameOverManager?.FadeInAndOut();
     }
 
     void HitImmunity()
