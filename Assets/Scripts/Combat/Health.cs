@@ -3,6 +3,8 @@ using System;
 
 public class Health : MonoBehaviour, IDamageable
 {
+    public int StartingHealth => _startingHealth;
+
     public GameObject SplatterPrefab => _splatterPrefab;
     public GameObject DeathVFXPrefab => _deathVFXPrefab;
 
