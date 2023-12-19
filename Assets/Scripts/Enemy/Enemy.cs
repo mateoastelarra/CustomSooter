@@ -61,6 +61,8 @@ public class Enemy : MonoBehaviour
 
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
             iDamageable?.TakeDamage(transform.position, _damageAmount, _knockBackThrust);
+
+            PlayerController.OnPlayerHit?.Invoke();
         }
     }
 

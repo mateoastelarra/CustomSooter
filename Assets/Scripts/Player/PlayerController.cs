@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public static Action OnJump;
     public static Action OnJetpack;
+    public static Action OnPlayerHit;
 
     public static PlayerController Instance;
 

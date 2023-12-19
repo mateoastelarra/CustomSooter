@@ -42,7 +42,7 @@ public class Knockback : MonoBehaviour
 
     private void ApplyKnockBackForce()
     {
-        Vector3 difference = (transform.position - _hitDirection).normalized ;
+        Vector3 difference = (transform.position - _hitDirection).normalized;
         _rigidBody.AddForce(difference * _knockBackThrust * _rigidBody.mass, ForceMode2D.Impulse);
         StartCoroutine(Knock());
     }

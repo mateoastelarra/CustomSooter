@@ -22,7 +22,7 @@ public class DeathSplatterHandler : MonoBehaviour
         SpriteRenderer splatterSR = newSplatterPrefab.GetComponent<SpriteRenderer>();
         ColorChanger enemyColorChanger = sender.GetComponent<ColorChanger>();
         
-        if (!enemyColorChanger) 
+        if (enemyColorChanger) 
         { 
             splatterSR.color = enemyColorChanger.DefaultColor;  
         }
@@ -36,7 +36,7 @@ public class DeathSplatterHandler : MonoBehaviour
         ParticleSystem.MainModule psMainModule = newDeathVFXPrefab.GetComponent<ParticleSystem>().main;
         ColorChanger enemyColorChanger = sender.GetComponent<ColorChanger>();
         
-        if (!enemyColorChanger) 
+        if (enemyColorChanger) 
         { 
             psMainModule.startColor = enemyColorChanger.DefaultColor; 
         }
