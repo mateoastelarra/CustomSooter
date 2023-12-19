@@ -31,6 +31,14 @@ public class PlayerHit : MonoBehaviour
         OnPlayerHit -= Blinking;
     }
 
+    private void OnDestroy()
+    {
+        Fade fade = FindFirstObjectByType<Fade>();
+        fade.FadeOut();
+        fade.RestartGame();
+        //fade.RespawnPlayer();
+    }
+
     void HitImmunity()
     {
         StartCoroutine(HitImmunityRoutine());
