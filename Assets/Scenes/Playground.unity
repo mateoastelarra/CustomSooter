@@ -1095,7 +1095,6 @@ MonoBehaviour:
   _respawnPoint: {fileID: 147722835}
   _virtualCamera: {fileID: 1312036107}
   _fadeTime: 1
-  _restartTime: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

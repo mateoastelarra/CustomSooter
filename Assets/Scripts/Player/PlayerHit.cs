@@ -34,9 +34,7 @@ public class PlayerHit : MonoBehaviour
     private void OnDestroy()
     {
         Fade fade = FindFirstObjectByType<Fade>();
-        fade.FadeOut();
-        fade.RestartGame();
-        //fade.RespawnPlayer();
+        fade?.FadeInAndOut();
     }
 
     void HitImmunity()
