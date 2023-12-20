@@ -66,6 +66,6 @@ public class ScoreManager : MonoBehaviour
     {
         _bestScore = score;
         PlayerPrefs.SetInt("BestScore", _bestScore);
-        _bestScoreText.text = "Best" + _bestScore.ToString("D3");
+        _bestScoreText.text = "Best\n" + _bestScore.ToString("D3");
     }
 }

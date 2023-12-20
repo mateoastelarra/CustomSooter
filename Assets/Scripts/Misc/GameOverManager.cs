@@ -19,6 +19,7 @@ public class GameOverManager: MonoBehaviour
 
     private void Awake()
     {
+        _image.gameObject.SetActive(true);
         _spawner = GetComponent<Spawner>();   
     }
 
