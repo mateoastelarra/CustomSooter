@@ -6,6 +6,8 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
+    public int GrenadesAtStart => _grenadesAtStart;
+
     public static Action OnShoot;
     public static Action OnLaunchGrenade;
 

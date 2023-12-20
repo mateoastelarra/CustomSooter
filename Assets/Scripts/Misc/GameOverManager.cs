@@ -38,7 +38,6 @@ public class GameOverManager: MonoBehaviour
     private void FadeIn()
     {
         ActivateRespawnPoint();
-        //RespawnPlayer();
         StartCoroutine(FadeRoutine(0f));
         StartCoroutine(DeactivateRespawnPoint());   
     }
@@ -62,12 +61,6 @@ public class GameOverManager: MonoBehaviour
             yield return null;
         }
         _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, targetAlpha);
-    }
-
-    private void RespawnPlayer()
-    {
-        GameObject player = Instantiate(_playerPrefab, _respawnPoint.position, Quaternion.identity);
-        _virtualCamera.Follow = player.transform;
     }
 
     private IEnumerator DeactivateRespawnPoint()
