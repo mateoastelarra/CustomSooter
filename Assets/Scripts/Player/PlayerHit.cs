@@ -40,7 +40,7 @@ public class PlayerHit : MonoBehaviour
     private void OnDestroy()
     {
         GameOverManager gameOverManager = FindFirstObjectByType<GameOverManager>();
-        gameOverManager?.FadeInAndOut();
+        gameOverManager?.FadeOut();
     }
 
     void HitImmunity()

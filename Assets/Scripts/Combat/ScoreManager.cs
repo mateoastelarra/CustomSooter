@@ -20,6 +20,17 @@ public class ScoreManager : MonoBehaviour
         Health.OnDeath -= AddScore;
     }
 
+    private void Start()
+    {
+        _bestScore = PlayerPrefs.GetInt("BestScore");
+        SetBestScore(_bestScore);
+    }
+
+    private void Update()
+    {
+        UpdateBestScore();
+    }
+
     private void AddScore(Health sender)
     {
         if (sender.gameObject.CompareTag("Player")) 
@@ -47,8 +58,14 @@ public class ScoreManager : MonoBehaviour
     {
         if (_currentScore > _bestScore)
         {
-            _bestScore = _currentScore;
-            _bestScoreText.text = "Best" + _currentScore.ToString("D3");
+            SetBestScore(_currentScore);
         }
+    }
+
+    private void SetBestScore(int score)
+    {
+        _bestScore = score;
+        PlayerPrefs.SetInt("BestScore", _bestScore);
+        _bestScoreText.text = "Best" + _bestScore.ToString("D3");
     }
 }

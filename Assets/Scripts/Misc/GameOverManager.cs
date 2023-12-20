@@ -27,26 +27,26 @@ public class GameOverManager: MonoBehaviour
         GetReSpawnPoint();
         PlayerController.Instance.transform.position = _respawnPoint.transform.position;
         _respawnPointSR = _respawnPoint.GetComponentInChildren<SpriteRenderer>();
-        StartCoroutine(DeactivateRespawnPoint());
+        FadeIn();
     }
 
-    public void FadeInAndOut()
+    public void FadeOut()
     {
-        StartCoroutine(FadeOut());
+        StartCoroutine(FadeOutRoutine());
     }
 
     private void FadeIn()
     {
+        ActivateRespawnPoint();
+        //RespawnPlayer();
         StartCoroutine(FadeRoutine(0f));
+        StartCoroutine(DeactivateRespawnPoint());   
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator FadeOutRoutine()
     {
         yield return StartCoroutine(FadeRoutine(1f));
-        ActivateRespawnPoint();
-        RespawnPlayer();
-        FadeIn();
-        StartCoroutine(DeactivateRespawnPoint());
+        ReloadScene();
     }
 
     private IEnumerator FadeRoutine(float targetAlpha, Sprite sprite = null)
@@ -110,6 +110,11 @@ public class GameOverManager: MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
