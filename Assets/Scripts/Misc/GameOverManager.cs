@@ -7,17 +7,21 @@ using Cinemachine;
 public class GameOverManager: MonoBehaviour
 {
     [SerializeField] private GameObject _playerPrefab;
-    [SerializeField] private Transform _respawnPoint;
     [SerializeField] private CinemachineVirtualCamera _virtualCamera;
     [SerializeField] private Image _image;
     [SerializeField] private float _fadeTime = 1.5f;
     [SerializeField] private float _deactivateSpawnPointTime = 3f;
 
     private SpriteRenderer _respawnPointSR;
+    private Spawner _spawner;
+    private Transform _respawnPoint;
 
     private void Awake()
     {
-        _respawnPointSR = _respawnPoint.GetComponent<SpriteRenderer>();
+        _spawner = GetComponent<Spawner>();
+        GetReSpawnPoint();
+        PlayerController.Instance.transform.position = _respawnPoint.transform.position;
+        _respawnPointSR = _respawnPoint.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -92,6 +96,19 @@ public class GameOverManager: MonoBehaviour
                                           _respawnPointSR.color.g,
                                           _respawnPointSR.color.b, 1);
         _respawnPoint.gameObject.SetActive(true);
+    }
+
+    private void GetReSpawnPoint()
+    {
+        Transform[] spawnPoints = _spawner.SpawnPoints;
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            if (spawnPoints[i].childCount != 0)
+            {
+                _respawnPoint = spawnPoints[i];
+                return;
+            }
+        }
     }
 
 }

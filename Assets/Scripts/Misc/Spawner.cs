@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public Transform[] SpawnPoints => _spawnPoints;
+
     [SerializeField] private GameObject _spawnable; 
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] [Range(0, 20)] int _spawnquantity;
@@ -22,12 +24,13 @@ public class Spawner : MonoBehaviour
         while (spawnedObjects < _spawnquantity)
         {
             float randomNum = Random.Range(0f, 1f);
-            if (randomNum < 1 / (_spawnquantity * 1.0f) && _spawnPoints[spawnPosition].childCount == 0)
+            if (randomNum < 1 / (_spawnPoints.Length * 1.0f) && _spawnPoints[spawnPosition].childCount == 0)
             {
-                Instantiate(_spawnable, _spawnPoints[spawnPosition].position, Quaternion.identity, _spawnPoints[spawnPosition]);
-                //_spawnPoints[spawnPosition].SetActive(true);
+                Instantiate(_spawnable, 
+                            _spawnPoints[spawnPosition].position, 
+                            Quaternion.identity, 
+                            _spawnPoints[spawnPosition]);
                 spawnedObjects++;
-                Debug.Log(spawnPosition);
             }
             spawnPosition = (spawnPosition + 1) % _spawnPoints.Length;
         }
