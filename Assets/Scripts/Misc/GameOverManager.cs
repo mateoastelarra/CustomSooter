@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager: MonoBehaviour
 {
@@ -18,14 +19,14 @@ public class GameOverManager: MonoBehaviour
 
     private void Awake()
     {
-        _spawner = GetComponent<Spawner>();
-        GetReSpawnPoint();
-        PlayerController.Instance.transform.position = _respawnPoint.transform.position;
-        _respawnPointSR = _respawnPoint.GetComponentInChildren<SpriteRenderer>();
+        _spawner = GetComponent<Spawner>();   
     }
 
     private void Start()
     {
+        GetReSpawnPoint();
+        PlayerController.Instance.transform.position = _respawnPoint.transform.position;
+        _respawnPointSR = _respawnPoint.GetComponentInChildren<SpriteRenderer>();
         StartCoroutine(DeactivateRespawnPoint());
     }
 
