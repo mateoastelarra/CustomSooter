@@ -13,6 +13,7 @@ public class SoundCollectionsSO : ScriptableObject
     public SoundSO[] GrenadeTick;
     public SoundSO[] GrenadeExplode;
     public SoundSO[] PlayerHit;
+    public SoundSO[] MegaKill;
 
     [Header("Music")]
     public SoundSO[] FightMusic;

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -34,6 +36,7 @@ public class AudioManager : MonoBehaviour
         PlayerController.OnJetpack += PlayerController_OnJetpack;
         PlayerHit.OnPlayerHit += PlayerController_OnPlayerHit;
         Health.OnDeath += Health_OnDeath;
+        Health.OnDeath += HandleMegaDeath;
         DiscoballManager.OnStartParty += DiscoPartyMusic;
         DiscoballManager.OnFinishParty += FightMusic;
     }
@@ -46,6 +49,7 @@ public class AudioManager : MonoBehaviour
         PlayerController.OnJetpack -= PlayerController_OnJetpack;
         PlayerHit.OnPlayerHit -= PlayerController_OnPlayerHit;
         Health.OnDeath -= Health_OnDeath;
+        Health.OnDeath -= HandleMegaDeath;
         DiscoballManager.OnStartParty -= DiscoPartyMusic;
         DiscoballManager.OnFinishParty -= FightMusic;
     }
@@ -165,6 +169,11 @@ public class AudioManager : MonoBehaviour
     {
         PlayRandomSound(_soundCollectionsSO.GrenadeExplode);
     }
+
+    public void AudioManager_MegaKill()
+    {
+        PlayRandomSound(_soundCollectionsSO.MegaKill);
+    }
     #endregion
 
     #region Music
@@ -176,6 +185,36 @@ public class AudioManager : MonoBehaviour
     private void DiscoPartyMusic()
     {
         PlayRandomSound(_soundCollectionsSO.DiscoPartyMusic);
+    }
+    #endregion
+
+    #region Custom SFX Logic
+
+    private List<Health> _deathList = new List<Health>();
+    private Coroutine _deathRoutine;
+
+    private void HandleMegaDeath(Health health)
+    {
+        bool isEnemy = health.GetComponent<Enemy>();
+        _deathList.Add(health);
+
+        if (_deathRoutine == null)
+        {
+            _deathRoutine = StartCoroutine(DeathWindowRoutine());
+        }
+    }
+
+    private IEnumerator DeathWindowRoutine()
+    {
+        yield return null;
+
+        int megaKillAmount = 3;
+        if(_deathList.Count >= megaKillAmount)
+        {
+            AudioManager_MegaKill();
+        }
+        _deathList.Clear();
+        _deathRoutine = null;
     }
     #endregion
 
