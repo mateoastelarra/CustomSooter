@@ -9,33 +9,53 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject _spawnable; 
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] [Range(0, 20)] int _spawnquantity;
+    [SerializeField] private bool _shouldSpawnExtra;
 
 
     private void Awake()
     {
-        ActivateObjects();
+        SpawnObjectsAtStart();
     }
 
-    private void ActivateObjects()
+    private void OnEnable()
+    {
+        ScoreManager.OnScoreThreshold += SpawnExtraObject; 
+    }
+
+    private void OnDisable()
+    {
+        ScoreManager.OnScoreThreshold -= SpawnExtraObject;
+    }
+
+    private void SpawnObjectsAtStart()
+    {
+        SpawnObjects(_spawnquantity);
+    }
+
+    private void SpawnExtraObject()
+    {
+        if (!_shouldSpawnExtra) { return; }
+        SpawnObjects(1);
+    }
+
+    private void SpawnObjects(int quantity)
     {
         int spawnedObjects = 0;
         int spawnPosition = 0;
 
-        while (spawnedObjects < _spawnquantity)
+        while (spawnedObjects < quantity)
         {
             float randomNum = Random.Range(0f, 1f);
             if (randomNum < 1 / (_spawnPoints.Length * 1.0f) && _spawnPoints[spawnPosition].childCount == 0)
             {
-                Instantiate(_spawnable, 
-                            _spawnPoints[spawnPosition].position, 
-                            Quaternion.identity, 
+                Instantiate(_spawnable,
+                            _spawnPoints[spawnPosition].position,
+                            Quaternion.identity,
                             _spawnPoints[spawnPosition]);
                 spawnedObjects++;
             }
             spawnPosition = (spawnPosition + 1) % _spawnPoints.Length;
         }
     }
-
-
 
 }

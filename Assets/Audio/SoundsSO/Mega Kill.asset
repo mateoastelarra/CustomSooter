@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Mega Kill
   m_EditorClassIdentifier: 
   AudioType: 0
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: c0fdd363906f04644a8cefec8b86410d, type: 3}
   Loop: 0
   RandomizePitch: 0
   RandomPitchModifier: 0.8
-  Volume: 1
+  Volume: 0.75
   Pitch: 1

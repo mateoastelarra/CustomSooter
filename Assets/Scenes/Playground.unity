@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1585995697}
   _bestScoreText: {fileID: 242809430}
+  _scoreThresholdChanger: 50
 --- !u!1001 &123911299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1335,6 +1336,7 @@ MonoBehaviour:
   - {fileID: 1450005245}
   - {fileID: 2040526721}
   _spawnquantity: 5
+  _shouldSpawnExtra: 1
 --- !u!1 &738951316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +1975,7 @@ MonoBehaviour:
   - {fileID: 1221542723}
   - {fileID: 1965139106}
   _spawnquantity: 1
+  _shouldSpawnExtra: 0
 --- !u!1 &993866060
 GameObject:
   m_ObjectHideFlags: 0
