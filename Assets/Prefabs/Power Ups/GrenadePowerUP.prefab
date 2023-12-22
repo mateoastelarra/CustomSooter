@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1500632280052077965}
   - component: {fileID: 7673085268044096623}
   - component: {fileID: 5429351431935613895}
+  - component: {fileID: 4350758080906584227}
   m_Layer: 0
   m_Name: GrenadePowerUP
   m_TagString: Untagged
@@ -184,3 +185,15 @@ SortingGroup:
   m_SortingLayer: -1
   m_SortingOrder: 1
   m_SortAtRoot: 0
+--- !u!114 &4350758080906584227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727498512068730837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc22e9709bc74a847919c89dfeb31cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

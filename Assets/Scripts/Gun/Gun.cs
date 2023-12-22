@@ -6,7 +6,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-    public int GrenadesAtStart => _grenadesAtStart;
+    public int CurrentGrenades { get => _currentGrenades; set => _currentGrenades = value; }
 
     public static Action OnShoot;
     public static Action OnLaunchGrenade;
@@ -43,11 +43,11 @@ public class Gun : MonoBehaviour
         _animator = GetComponent<Animator>();
         _impulseSource = GetComponent<CinemachineImpulseSource>();
         _playerInput = GetComponentInParent<PlayerInput>();
+        _currentGrenades = _grenadesAtStart;
     }
 
     private void Start()
     {
-        _currentGrenades = _grenadesAtStart;
         GatherInput();
         CreateBulletPool();
     }
@@ -108,7 +108,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        if (_frameInput.FireGrenade && Time.time >= _lastGrenadeTime && _currentGrenades > 0) 
+        if (_frameInput.FireGrenade && Time.time >= _lastGrenadeTime && CurrentGrenades > 0) 
         {
             OnLaunchGrenade?.Invoke();    
         }

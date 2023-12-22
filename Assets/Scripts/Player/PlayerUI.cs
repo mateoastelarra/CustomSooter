@@ -10,13 +10,11 @@ public class PlayerUI : MonoBehaviour
 
     private Health _playerHealth;
     private Gun _playerGun;
-    private int _currentGrenades;
 
     private void Start()
     {
         _playerHealth = GetComponent<Health>();
         _playerGun = GetComponentInChildren<Gun>();
-        _currentGrenades = _playerGun.GrenadesAtStart;
         UpdateHealthText();
         UpdateGrenadesText();
     }
@@ -24,14 +22,12 @@ public class PlayerUI : MonoBehaviour
     private void OnEnable()
     {
         PlayerHit.OnPlayerHit += UpdateHealthText;
-        Gun.OnLaunchGrenade += UpdateCurrentGreenades;
         Gun.OnLaunchGrenade += UpdateGrenadesText;
     }
 
     private void OnDisable()
     {
         PlayerHit.OnPlayerHit -= UpdateHealthText;
-        Gun.OnLaunchGrenade -= UpdateCurrentGreenades;
         Gun.OnLaunchGrenade -= UpdateGrenadesText;
     }
 
@@ -41,13 +37,8 @@ public class PlayerUI : MonoBehaviour
         _healthText.text = _playerHealth.CurrentHealth.ToString();
     }
 
-    private void UpdateGrenadesText()
+    public void UpdateGrenadesText()
     {
-        _grenadesText.text = _currentGrenades.ToString();    
-    }
-
-    private void UpdateCurrentGreenades()
-    {
-        _currentGrenades--;
+        _grenadesText.text = _playerGun.CurrentGrenades.ToString();    
     }
 }
