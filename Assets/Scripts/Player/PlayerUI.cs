@@ -10,15 +10,12 @@ public class PlayerUI : MonoBehaviour
 
     private Health _playerHealth;
     private Gun _playerGun;
-    private int _currentHealth;
     private int _currentGrenades;
 
     private void Start()
     {
-        GameObject player = PlayerController.Instance.gameObject;
-        _playerHealth = player.GetComponent<Health>();
-        _playerGun = player.GetComponentInChildren<Gun>();
-        _currentHealth = _playerHealth.StartingHealth;
+        _playerHealth = GetComponent<Health>();
+        _playerGun = GetComponentInChildren<Gun>();
         _currentGrenades = _playerGun.GrenadesAtStart;
         UpdateHealthText();
         UpdateGrenadesText();
@@ -26,7 +23,6 @@ public class PlayerUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHit.OnPlayerHit += UpdateCurrentHealth;
         PlayerHit.OnPlayerHit += UpdateHealthText;
         Gun.OnLaunchGrenade += UpdateCurrentGreenades;
         Gun.OnLaunchGrenade += UpdateGrenadesText;
@@ -34,21 +30,15 @@ public class PlayerUI : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerHit.OnPlayerHit -= UpdateCurrentHealth;
         PlayerHit.OnPlayerHit -= UpdateHealthText;
         Gun.OnLaunchGrenade -= UpdateCurrentGreenades;
         Gun.OnLaunchGrenade -= UpdateGrenadesText;
     }
 
-    private void UpdateCurrentHealth()
+    public void UpdateHealthText()
     {
-        _currentHealth--;
-    }
-
-    private void UpdateHealthText()
-    {
-        if (_currentHealth < 0) { return; }
-        _healthText.text = _currentHealth.ToString();
+        if (_playerHealth.CurrentHealth < 0) { return; }
+        _healthText.text = _playerHealth.CurrentHealth.ToString();
     }
 
     private void UpdateGrenadesText()

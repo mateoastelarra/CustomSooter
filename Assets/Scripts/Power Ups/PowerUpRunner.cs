@@ -1,0 +1,24 @@
+
+using UnityEngine;
+
+public class PowerUpRunner : MonoBehaviour
+{
+    IPowerUp _curentPowerUp = new HealthPowerUp();
+
+    public void UsePowerUp()
+    {
+        _curentPowerUp.Consume(gameObject);
+        IPowerUp.OnPowerUpPickUp?.Invoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IPowerUp powerUp = collision.GetComponent<IPowerUp>();
+        if (powerUp != null)
+        {
+            _curentPowerUp = powerUp;
+            UsePowerUp();
+            Destroy(collision.gameObject);
+        }
+    }
+}

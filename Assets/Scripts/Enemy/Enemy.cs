@@ -60,10 +60,10 @@ public class Enemy : MonoBehaviour
         IHitable iHitable = collision.gameObject.GetComponent<IHitable>();
         iHitable?.TakeHit();
 
-        PlayerHit.OnPlayerHit?.Invoke();
-
         IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
         iDamageable?.TakeDamage(transform.position, _damageAmount, _knockBackThrust);
+
+        PlayerHit.OnPlayerHit?.Invoke();
     }
 
 }

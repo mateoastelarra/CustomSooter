@@ -5,6 +5,7 @@ public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _moveDustVFX;
     [SerializeField] private ParticleSystem _JumpVFX;
+    [SerializeField] private ParticleSystem _powerUpPickUpVFX;
     [SerializeField] private float _tiltAngle = 20f;
     [SerializeField] private float _tiltSpeed = 5f;
     [SerializeField] private float _hatTiltModifier = 8f;
@@ -32,11 +33,13 @@ public class PlayerAnimations : MonoBehaviour
     private void OnEnable()
     {
         PlayerController.OnJump += PlayJumpEffect;
+        IPowerUp.OnPowerUpPickUp += PlayPowerUpPickUpVFX;
     }
 
     private void OnDisable()
     {
         PlayerController.OnJump -= PlayJumpEffect;
+        IPowerUp.OnPowerUpPickUp -= PlayPowerUpPickUpVFX;
     }
 
     private void FixedUpdate()
@@ -75,6 +78,11 @@ public class PlayerAnimations : MonoBehaviour
     private void PlayJumpEffect()
     {
         _JumpVFX.Play();
+    }
+
+    private void PlayPowerUpPickUpVFX()
+    {
+        _powerUpPickUpVFX.Play();
     }
 
     private void ApplyTilt()

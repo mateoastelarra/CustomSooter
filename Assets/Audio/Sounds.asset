@@ -31,6 +31,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 49d0d587da850294e9e0282612705761, type: 2}
   MegaKill:
   - {fileID: 11400000, guid: a7f3d8a9a6ffaa44fa47261890e18430, type: 2}
+  PowerUpPickUp:
+  - {fileID: 11400000, guid: 87a225538ae7ea64883cf3f7a6fd27c5, type: 2}
   FightMusic:
   - {fileID: 11400000, guid: f437e300eb37f874c9d7bd4a9d89dd88, type: 2}
   DiscoPartyMusic:

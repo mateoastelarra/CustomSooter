@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 5037470352478605768}
   - component: {fileID: 1053927690071503020}
   - component: {fileID: 8197926199292116816}
+  - component: {fileID: -8409979786587080783}
   m_Layer: 0
   m_Name: HealthPowerUp
   m_TagString: Untagged
@@ -254,12 +255,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.505
   m_Color: {r: 0.4, g: 0.87058824, b: 0.9529412, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 61123ce0ed759d85000000005dbcad30
+  m_ApplyToSortingLayers: 61123ce0000000005dbcad30ed759d85
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -301,3 +302,15 @@ SortingGroup:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &-8409979786587080783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760150636958080747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7db6b5405c30f34097061a62f88bcc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

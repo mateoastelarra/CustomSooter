@@ -4,6 +4,7 @@ using System;
 public class Health : MonoBehaviour, IDamageable
 {
     public int StartingHealth => _startingHealth;
+    public int CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
 
     public GameObject SplatterPrefab => _splatterPrefab;
     public GameObject DeathVFXPrefab => _deathVFXPrefab;
@@ -24,9 +25,6 @@ public class Health : MonoBehaviour, IDamageable
         _knockback = GetComponent<Knockback>();
         _flash = GetComponent<Flash>();
         _health = GetComponent<Health>();
-    }
-
-    private void Start() {
         ResetHealth();
     }
 

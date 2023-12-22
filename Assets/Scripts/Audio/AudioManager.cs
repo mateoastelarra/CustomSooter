@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour
         Health.OnDeath += HandleMegaDeath;
         DiscoballManager.OnStartParty += DiscoPartyMusic;
         DiscoballManager.OnFinishParty += FightMusic;
+        IPowerUp.OnPowerUpPickUp += IPowerUp_PowerUpPickUp;
     }
 
     private void OnDisable()
@@ -52,6 +53,7 @@ public class AudioManager : MonoBehaviour
         Health.OnDeath -= HandleMegaDeath;
         DiscoballManager.OnStartParty -= DiscoPartyMusic;
         DiscoballManager.OnFinishParty -= FightMusic;
+        IPowerUp.OnPowerUpPickUp -= IPowerUp_PowerUpPickUp;
     }
     #endregion
 
@@ -173,6 +175,11 @@ public class AudioManager : MonoBehaviour
     public void AudioManager_MegaKill()
     {
         PlayRandomSound(_soundCollectionsSO.MegaKill);
+    }
+
+    public void IPowerUp_PowerUpPickUp()
+    {
+        PlayRandomSound(_soundCollectionsSO.PowerUpPickUp);
     }
     #endregion
 
