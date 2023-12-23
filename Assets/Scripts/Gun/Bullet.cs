@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int _damageAmount = 1;
     [SerializeField] private float _knockBackThrust = 20f;
     [SerializeField] private GameObject _bulletVFXPrefab;
+    [SerializeField] private bool _isSpecialBullet;
 
     private Vector2 _fireDirection;
     private Gun _gun;
@@ -40,6 +41,11 @@ public class Bullet : MonoBehaviour
         IDamageable iDamageable = other.gameObject.GetComponent<IDamageable>();
         iDamageable?.TakeDamage(PlayerController.Instance.transform.position, _damageAmount, _knockBackThrust);
 
+        if (_isSpecialBullet)
+        {
+            Destroy(gameObject);
+            return;
+        }
         _gun.ReleaseBulletFromPool(this);
     }
 }
