@@ -7,7 +7,7 @@ using System.Collections;
 public class Gun : MonoBehaviour
 {
     public int CurrentGrenades { get => _currentGrenades; set => _currentGrenades = value; }
-
+    
     public static Action OnShoot;
     public static Action OnLaunchGrenade;
 
@@ -27,13 +27,14 @@ public class Gun : MonoBehaviour
     
 
     private Coroutine _muzzleFlashCoroutine;
+    private Coroutine _specialBulletCoroutine;
     private ObjectPool<Bullet> _bulletPool;
     private static readonly int FIRE_HASH = Animator.StringToHash("Fire");
     private Vector2 _mousePos;
     private float _lastFireTime = 0f;
     private float _lastGrenadeTime = 0f;
     private int _currentGrenades;
-    [SerializeField] private bool _specialBulletActive;
+    private bool _specialBulletActive;
 
     private CinemachineImpulseSource _impulseSource;
     private Animator _animator;
@@ -185,5 +186,25 @@ public class Gun : MonoBehaviour
         _muzzleFlash.SetActive(true);
         yield return new WaitForSeconds(_muzzleFlashTime);
         _muzzleFlash.SetActive(false);
+    }
+
+    public void ActivateSpecialBullets(float time)
+    {
+        if (_specialBulletCoroutine == null)
+        {
+            _specialBulletCoroutine = StartCoroutine(ActivateSpecialBulletsRoutine(time));
+        }
+        else
+        {
+            StopCoroutine(_specialBulletCoroutine);
+            _specialBulletCoroutine = StartCoroutine(ActivateSpecialBulletsRoutine(time));
+        }   
+    }
+
+    private IEnumerator ActivateSpecialBulletsRoutine(float time)
+    {
+        _specialBulletActive = true;
+        yield return new WaitForSeconds(time);
+        _specialBulletActive = false;
     }
 }

@@ -104,12 +104,12 @@ MonoBehaviour:
   _grenadeVFXPrefab: {fileID: 7371851854010717418, guid: 7dca8a8f88f3b9348afd1fd980e7236d, type: 3}
   _launchForce: 20
   _torqueAmount: 0.3
-  _explotionTime: 2
-  _explotionRadius: 3
+  _explotionRadius: 3.5
   _enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
   _damageAmount: 3
+  _explotionTime: 2
   _amountOfTicks: 3
   _tickTime: 0.1
 --- !u!58 &2190082286841939707

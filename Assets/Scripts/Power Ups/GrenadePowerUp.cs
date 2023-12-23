@@ -11,5 +11,7 @@ public class GrenadePowerUp : MonoBehaviour, IPowerUp
 
         PlayerUI playerUI = gameObject.GetComponent<PlayerUI>();
         playerUI.UpdateGrenadesText();
+
+        Debug.Log("Granada");
     }
 }
