@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Cinemachine;
 using System.Collections;
+using System.IO;
 
 public class Gun : MonoBehaviour
 {
@@ -110,6 +111,7 @@ public class Gun : MonoBehaviour
     {
         if (_frameInput.FireGrenade && Time.time >= _lastGrenadeTime && CurrentGrenades > 0) 
         {
+            CurrentGrenades -= 1;
             OnLaunchGrenade?.Invoke();    
         }
         else if (_frameInput.FireGun && Time.time >= _lastFireTime)
@@ -128,8 +130,9 @@ public class Gun : MonoBehaviour
     {
         Grenade newGrenade = Instantiate(_grenadePrefab, _bulletSpawnPoint.position, Quaternion.identity);
         newGrenade.Init(this, _bulletSpawnPoint.position, _mousePos);
-        CurrentGrenades -= 1;
         Debug.Log("gun:" + CurrentGrenades);
+        string filePath = Path.Combine(Application.persistentDataPath, "log.txt");
+        File.WriteAllText(filePath, "gun:" + CurrentGrenades);
     }
 
     private void UpdateLastFireTime()

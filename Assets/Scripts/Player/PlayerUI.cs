@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -52,5 +53,7 @@ public class PlayerUI : MonoBehaviour
     {
         _grenadesText.text = _playerGun.CurrentGrenades.ToString();
         Debug.Log(_playerGun.CurrentGrenades);
+        string filePath = Path.Combine(Application.persistentDataPath, "log.txt");
+        File.WriteAllText(filePath, _playerGun.CurrentGrenades.ToString());
     }
 }
