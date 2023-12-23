@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
         _animator = GetComponent<Animator>();
         _impulseSource = GetComponent<CinemachineImpulseSource>();
         _playerInput = GetComponentInParent<PlayerInput>();
-        _currentGrenades = _grenadesAtStart;
+        CurrentGrenades = _grenadesAtStart;
     }
 
     private void Start()
@@ -128,7 +128,8 @@ public class Gun : MonoBehaviour
     {
         Grenade newGrenade = Instantiate(_grenadePrefab, _bulletSpawnPoint.position, Quaternion.identity);
         newGrenade.Init(this, _bulletSpawnPoint.position, _mousePos);
-        _currentGrenades -= 1;
+        CurrentGrenades -= 1;
+        Debug.Log("gun:" + CurrentGrenades);
     }
 
     private void UpdateLastFireTime()

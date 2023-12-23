@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PowerUpRunner : MonoBehaviour
 {
-    IPowerUp _curentPowerUp = new HealthPowerUp();
+    IPowerUp _curentPowerUp;
 
     public void UsePowerUp()
     {
