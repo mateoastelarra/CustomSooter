@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public Transform[] SpawnPoints => _spawnPoints;
 
-    [SerializeField] private GameObject _spawnable; 
+    [SerializeField] private GameObject[] _spawnables; 
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] [Range(0, 20)] int _spawnquantity;
     [SerializeField] private bool _shouldSpawnExtra;
@@ -48,7 +48,8 @@ public class Spawner : MonoBehaviour
             float randomNum = Random.Range(0f, 1f);
             if (randomNum < 1 / (_spawnPoints.Length * 1.0f) && _spawnPoints[spawnPosition].childCount == 0)
             {
-                Instantiate(_spawnable,
+                int spawnableIndex = Random.Range(0, _spawnables.Length);
+                Instantiate(_spawnables[spawnableIndex],
                             _spawnPoints[spawnPosition].position,
                             Quaternion.identity,
                             _spawnPoints[spawnPosition]);
@@ -57,5 +58,7 @@ public class Spawner : MonoBehaviour
             spawnPosition = (spawnPosition + 1) % _spawnPoints.Length;
         }
     }
+
+
 
 }

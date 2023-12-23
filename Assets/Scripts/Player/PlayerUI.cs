@@ -52,8 +52,5 @@ public class PlayerUI : MonoBehaviour
     public void UpdateGrenadesText()
     {
         _grenadesText.text = _playerGun.CurrentGrenades.ToString();
-        Debug.Log(_playerGun.CurrentGrenades);
-        string filePath = Path.Combine(Application.persistentDataPath, "log.txt");
-        File.WriteAllText(filePath, _playerGun.CurrentGrenades.ToString());
     }
 }

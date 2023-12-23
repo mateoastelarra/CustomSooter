@@ -130,9 +130,6 @@ public class Gun : MonoBehaviour
     {
         Grenade newGrenade = Instantiate(_grenadePrefab, _bulletSpawnPoint.position, Quaternion.identity);
         newGrenade.Init(this, _bulletSpawnPoint.position, _mousePos);
-        Debug.Log("gun:" + CurrentGrenades);
-        string filePath = Path.Combine(Application.persistentDataPath, "log.txt");
-        File.WriteAllText(filePath, "gun:" + CurrentGrenades);
     }
 
     private void UpdateLastFireTime()
