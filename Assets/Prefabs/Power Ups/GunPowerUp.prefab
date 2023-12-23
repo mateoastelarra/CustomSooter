@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4090901750823710410}
   - component: {fileID: 7614532571240553265}
   - component: {fileID: 4167964763190236304}
+  - component: {fileID: 5191737448596819238}
   m_Layer: 0
   m_Name: GunPowerUp
   m_TagString: Untagged
@@ -216,3 +217,15 @@ SortingGroup:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &5191737448596819238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4766523730257834854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30096566eb88374a920174d5268fc68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

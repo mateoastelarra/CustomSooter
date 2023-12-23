@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Cinemachine;
 using System.Collections;
-using System.IO;
 
 public class Gun : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class Gun : MonoBehaviour
 
     [Header("Bullet")]
     [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private Bullet _specialBulletPrefab;
     [SerializeField] private GameObject _muzzleFlash;
     [SerializeField] private float _gunFireCD = 0.5f;
     [SerializeField] private float _muzzleFlashTime = .05f;
@@ -33,6 +33,7 @@ public class Gun : MonoBehaviour
     private float _lastFireTime = 0f;
     private float _lastGrenadeTime = 0f;
     private int _currentGrenades;
+    [SerializeField] private bool _specialBulletActive;
 
     private CinemachineImpulseSource _impulseSource;
     private Animator _animator;
@@ -122,8 +123,17 @@ public class Gun : MonoBehaviour
 
     private void ShootProjectile()
     {
-        Bullet newBullet = _bulletPool.Get();
-        newBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
+        if (!_specialBulletActive)
+        {
+            Bullet newBullet = _bulletPool.Get();
+            newBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
+        }
+        else
+        {
+            Bullet newSpecialBullet = Instantiate(_specialBulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
+            newSpecialBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
+        }
+        
     }
 
     private void LaunchGrenade()
