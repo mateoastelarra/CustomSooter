@@ -813,6 +813,17 @@ PolygonCollider2D:
       - {x: 92.88212, y: -55.83043}
       - {x: -6.42432, y: -55.699783}
   m_UseDelaunayMesh: 0
+--- !u!114 &450734446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7176877954868897733, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+  m_PrefabInstance: {fileID: 1314490392268466032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &452138035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,63 +1404,6 @@ Transform:
   - {fileID: 402353107}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &715419442
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4766523730257834854, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_Name
-      value: GunPowerUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050573608880016001, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 83494fce482fbb84e8b888b274183de8, type: 3}
 --- !u!1 &730296793
 GameObject:
   m_ObjectHideFlags: 0
@@ -9651,7 +9605,7 @@ Transform:
   m_GameObject: {fileID: 1645263361}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.04, y: 36.03, z: 0.17665733}
+  m_LocalPosition: {x: 45.04, y: 36.13, z: 0.17665733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10670,6 +10624,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6609407968930159167, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _muzzleFlash
+      value: 
+      objectReference: {fileID: 450734446}
+    - target: {fileID: 6609407968930159167, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
       propertyPath: _specialBulletPrefab
       value: 
       objectReference: {fileID: 6678824993607789899, guid: 4b62b125eaf7e3140825a163bc85cd2f, type: 3}
@@ -10766,4 +10724,3 @@ SceneRoots:
   - {fileID: 1433538871}
   - {fileID: 1735916839}
   - {fileID: 1278228545}
-  - {fileID: 715419442}
