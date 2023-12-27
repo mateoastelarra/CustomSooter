@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5871633238622658041}
   - component: {fileID: 2650118593764230741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7614532571240553265}
   - component: {fileID: 4167964763190236304}
   - component: {fileID: 5191737448596819238}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

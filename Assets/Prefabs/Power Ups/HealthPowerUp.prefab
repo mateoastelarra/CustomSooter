@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8644406708889677195}
   - component: {fileID: 8514629808923160723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mr. Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8764353246415281880}
   - component: {fileID: 8164309910310146288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cowboy Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1053927690071503020}
   - component: {fileID: 8197926199292116816}
   - component: {fileID: -8409979786587080783}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
