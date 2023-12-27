@@ -31,6 +31,14 @@ public class GameOverManager: MonoBehaviour
         FadeIn();
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public void FadeOut()
     {
         StartCoroutine(FadeOutRoutine());

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1141771071697256804}
   - component: {fileID: 1500632280052077965}
   - component: {fileID: 7673085268044096623}
-  - component: {fileID: 5429351431935613895}
   - component: {fileID: 4350758080906584227}
   m_Layer: 0
   m_Name: GrenadePowerUP
@@ -74,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2053278227
+  m_SortingLayer: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 486864cc06a222d4faa15a13a742ffb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +107,7 @@ MonoBehaviour:
   m_Intensity: 6
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 61123ce0000000005dbcad30
+  m_ApplyToSortingLayers: 61123ce05dbcad30
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -173,18 +172,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.67
---- !u!210 &5429351431935613895
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727498512068730837}
-  m_Enabled: 1
-  m_SortingLayerID: -2053278227
-  m_SortingLayer: -1
-  m_SortingOrder: 1
-  m_SortAtRoot: 0
 --- !u!114 &4350758080906584227
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class PowerUpRunner : MonoBehaviour
         IPowerUp powerUp = collision.GetComponent<IPowerUp>();
         if (powerUp != null)
         {
+            Debug.Log("PowerUp");
             _curentPowerUp = powerUp;
             UsePowerUp();
             Destroy(collision.gameObject);
