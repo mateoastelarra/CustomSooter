@@ -29,12 +29,17 @@ public class Spawner : MonoBehaviour
 
     private void SpawnObjectsAtStart()
     {
+        if (_spawnquantity > _spawnPoints.Length)
+        {
+            Debug.LogError("Spawn quantity can´t be bigger than total spawn points");
+            return;
+        }
         SpawnObjects(_spawnquantity);
     }
 
     private void SpawnExtraObject()
     {
-        if (!_shouldSpawnExtra) { return; }
+        if (!_shouldSpawnExtra || IsFull()) { return; }
         SpawnObjects(1);
     }
 
@@ -59,6 +64,16 @@ public class Spawner : MonoBehaviour
         }
     }
 
-
+    private bool IsFull()
+    {
+        for (int spawnPosition = 0; spawnPosition < _spawnPoints.Length; spawnPosition++)
+        {
+            if (_spawnPoints[spawnPosition].childCount == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
