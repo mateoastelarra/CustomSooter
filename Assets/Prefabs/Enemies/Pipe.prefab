@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _splatterPrefab: {fileID: 4276694785811083747, guid: 0477272b4a9496d468bec8e7ae7982e5, type: 3}
   _deathVFXPrefab: {fileID: 7442587905238565160, guid: 5ee90392b33219d498da20a9ebafecad, type: 3}
-  _startingHealth: 20
+  _startingHealth: 30
 --- !u!61 &2832387929957637719
 BoxCollider2D:
   m_ObjectHideFlags: 0
