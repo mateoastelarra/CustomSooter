@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GunShoot:
   - {fileID: 11400000, guid: 720bd683c6093d941a250c1992f06436, type: 2}
+  SpecialGunShoot:
+  - {fileID: 11400000, guid: 9c86ba07909efa74eaf39556576b58a4, type: 2}
   Jump:
   - {fileID: 11400000, guid: f81ea58c20928a14ebba55e6227788f9, type: 2}
   Splat:

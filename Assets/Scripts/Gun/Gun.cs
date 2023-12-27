@@ -3,12 +3,15 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Cinemachine;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
 public class Gun : MonoBehaviour
 {
     public int CurrentGrenades { get => _currentGrenades; set => _currentGrenades = value; }
     
     public static Action OnShoot;
+    public static Action OnRegularShoot;
+    public static Action OnSpecialShoot;
     public static Action OnLaunchGrenade;
 
     [SerializeField] private Transform _bulletSpawnPoint;
@@ -16,7 +19,7 @@ public class Gun : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private Bullet _specialBulletPrefab;
-    [SerializeField] private GameObject _muzzleFlash;
+    [SerializeField] private Light2D _muzzleFlash;
     [SerializeField] private float _gunFireCD = 0.5f;
     [SerializeField] private float _muzzleFlashTime = .05f;
 
@@ -64,7 +67,8 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
-        OnShoot += ShootProjectile;
+        OnRegularShoot += ShootProjectile;
+        OnSpecialShoot += ShootSpecialProjectile;
         OnShoot += UpdateLastFireTime;
         OnShoot += FireAnimation;
         OnShoot += GunScreenShake;
@@ -76,7 +80,8 @@ public class Gun : MonoBehaviour
 
     private void OnDisable()
     {
-        OnShoot -= ShootProjectile;
+        OnRegularShoot -= ShootProjectile;
+        OnSpecialShoot -= ShootSpecialProjectile;
         OnShoot -= UpdateLastFireTime;
         OnShoot -= FireAnimation;
         OnShoot -= GunScreenShake;
@@ -119,22 +124,28 @@ public class Gun : MonoBehaviour
         else if (_frameInput.FireGun && Time.time >= _lastFireTime)
         {
             OnShoot?.Invoke();
+            if (!_specialBulletActive)
+            {
+                OnRegularShoot?.Invoke();
+            }
+            else
+            {
+                OnSpecialShoot?.Invoke();
+            }
         }
     }
 
     private void ShootProjectile()
     {
-        if (!_specialBulletActive)
-        {
-            Bullet newBullet = _bulletPool.Get();
-            newBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
-        }
-        else
-        {
-            Bullet newSpecialBullet = Instantiate(_specialBulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
-            newSpecialBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
-        }
-        
+        Bullet newBullet = _bulletPool.Get();
+        newBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
+         
+    }
+
+    private void ShootSpecialProjectile()
+    {
+        Bullet newSpecialBullet = Instantiate(_specialBulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
+        newSpecialBullet.Init(this, _bulletSpawnPoint.position, _mousePos);
     }
 
     private void LaunchGrenade()
@@ -183,9 +194,14 @@ public class Gun : MonoBehaviour
 
     private IEnumerator MuzzleFlashRoutine()
     {
-        _muzzleFlash.SetActive(true);
+        _muzzleFlash.gameObject.SetActive(true);
         yield return new WaitForSeconds(_muzzleFlashTime);
-        _muzzleFlash.SetActive(false);
+        _muzzleFlash.gameObject.SetActive(false);
+    }
+
+    private void ChangeMuzzleFlashColor(Color color)
+    {
+        _muzzleFlash.color = color;
     }
 
     public void ActivateSpecialBullets(float time)
@@ -204,7 +220,9 @@ public class Gun : MonoBehaviour
     private IEnumerator ActivateSpecialBulletsRoutine(float time)
     {
         _specialBulletActive = true;
+        ChangeMuzzleFlashColor(Color.red);
         yield return new WaitForSeconds(time);
         _specialBulletActive = false;
+        ChangeMuzzleFlashColor(Color.white);
     }
 }

@@ -6,6 +6,7 @@ public class SoundCollectionsSO : ScriptableObject
 {
     [Header("SFX")]
     public SoundSO[] GunShoot;
+    public SoundSO[] SpecialGunShoot;
     public SoundSO[] Jump;
     public SoundSO[] Splat;
     public SoundSO[] Jetpack;

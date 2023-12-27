@@ -30,7 +30,8 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Gun.OnShoot += Gun_OnShoot;
+        Gun.OnRegularShoot += Gun_OnRegularShoot;
+        Gun.OnSpecialShoot += Gun_OnSpecialShoot;
         Gun.OnLaunchGrenade += Gun_OnLaunchGrenade;
         PlayerController.OnJump += PlayerController_OnJump;
         PlayerController.OnJetpack += PlayerController_OnJetpack;
@@ -44,7 +45,8 @@ public class AudioManager : MonoBehaviour
 
     private void OnDisable()
     {
-        Gun.OnShoot -= Gun_OnShoot;
+        Gun.OnRegularShoot -= Gun_OnRegularShoot;
+        Gun.OnSpecialShoot -= Gun_OnSpecialShoot;
         Gun.OnLaunchGrenade -= Gun_OnLaunchGrenade;
         PlayerController.OnJump -= PlayerController_OnJump;
         PlayerController.OnJetpack -= PlayerController_OnJetpack;
@@ -132,9 +134,14 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     #region SFX
-    private void Gun_OnShoot()
+    private void Gun_OnRegularShoot()
     {
         PlayRandomSound(_soundCollectionsSO.GunShoot);
+    }
+
+    private void Gun_OnSpecialShoot()
+    {
+        PlayRandomSound(_soundCollectionsSO.SpecialGunShoot);
     }
 
     private void PlayerController_OnJump()
