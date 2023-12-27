@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _coyoteTime = 0.5f;
     [SerializeField] private float _jetpackTime = 0.6f;
     [SerializeField] private float _jetpackStrength = 11f;
-    
+    [SerializeField] private float _maxFallSpeed = -20f;
+
     private float _timeInAir, _coyoteTimer;
     private bool _doubleJumpAvailable;
     
@@ -97,6 +98,10 @@ public class PlayerController : MonoBehaviour
         if (_timeInAir > _gravityDelay)
         {
             _rigidBody.AddForce(new Vector2(0, -_extraGravity));
+            if (_rigidBody.velocity.y < _maxFallSpeed)
+            {
+                _rigidBody.velocity = new Vector2 (_rigidBody.velocity.x, _maxFallSpeed);
+            }
         }
     }
 
