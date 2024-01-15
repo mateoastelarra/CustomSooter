@@ -10830,6 +10830,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 718200144}
     - target: {fileID: 5719362443487968341, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _virtualMouseInput
+      value: 
+      objectReference: {fileID: 1163104014}
+    - target: {fileID: 5719362443487968341, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
       propertyPath: _virtualMouseCursor
       value: 
       objectReference: {fileID: 718200144}
