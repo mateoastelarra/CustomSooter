@@ -172,7 +172,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSpriteFlip()
     {
-        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(_virtualMouseCursor.GetCursorPosition());
         if (mousePosition.x < transform.position.x)
         {

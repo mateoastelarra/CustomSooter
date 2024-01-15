@@ -5,17 +5,19 @@ using UnityEngine.InputSystem.Users;
 
 public class CursorHandler : MonoBehaviour
 {
-    [SerializeField] private Transform _virtualMousePosition;
+    [SerializeField] private Transform _virtualMouseCursor;
     [SerializeField] private bool _playWithController;
+    [SerializeField] private float padding = 20f;
 
     PlayerInput _playerInput;
     FrameInput _frameInput;
     Vector3 _currentMousePosition;
+    Vector3 _virtualMousePosition;
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
-        MakeCursorVisible(false);
+        Cursor.visible = false;
         _currentMousePosition = Vector3.zero;
     }
 
@@ -29,14 +31,12 @@ public class CursorHandler : MonoBehaviour
  
         if (_frameInput.AimWithJoystick == Vector2.zero && _currentMousePosition != Input.mousePosition)
         {
-            _virtualMousePosition.position = Input.mousePosition;
+            _virtualMouseCursor.position = Input.mousePosition;
             _currentMousePosition = Input.mousePosition;
         }
-        return _virtualMousePosition.position;
-    }
-
-    public void MakeCursorVisible(bool isVisible)
-    {
-        Cursor.visible = isVisible;
+        _virtualMousePosition.x = Mathf.Clamp(_virtualMouseCursor.position.x, padding, Screen.width - padding);
+        _virtualMousePosition.y = Mathf.Clamp(_virtualMouseCursor.position.y, padding, Screen.height - padding);
+        _virtualMouseCursor.position = _virtualMousePosition;
+        return _virtualMousePosition;
     }
 }

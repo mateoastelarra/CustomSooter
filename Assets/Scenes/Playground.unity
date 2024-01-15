@@ -1439,7 +1439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1060, y: 611}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &718200145
@@ -8267,7 +8267,7 @@ MonoBehaviour:
   m_CursorMode: 0
   m_CursorGraphic: {fileID: 718200145}
   m_CursorTransform: {fileID: 718200144}
-  m_CursorSpeed: 1000
+  m_CursorSpeed: 1200
   m_ScrollSpeed: 45
   m_StickAction:
     m_UseReference: 1
@@ -10825,6 +10825,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5719362443487968341, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _virtualMouse
+      value: 
+      objectReference: {fileID: 718200144}
+    - target: {fileID: 5719362443487968341, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _virtualMouseCursor
+      value: 
+      objectReference: {fileID: 718200144}
     - target: {fileID: 5719362443487968341, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
       propertyPath: _virtualMousePosition
       value: 

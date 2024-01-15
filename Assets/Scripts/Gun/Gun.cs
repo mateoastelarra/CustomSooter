@@ -178,7 +178,6 @@ public class Gun : MonoBehaviour
 
     private void RotateGun()
     {
-        //_mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _mousePos = Camera.main.ScreenToWorldPoint(_virtualMouseCursor.GetCursorPosition());
         Vector2 direction = PlayerController.Instance.transform.InverseTransformPoint(_mousePos);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
