@@ -43,12 +43,14 @@ public class Gun : MonoBehaviour
     private Animator _animator;
     private PlayerInput _playerInput;
     private FrameInput _frameInput;
+    private CursorHandler _virtualMouseCursor;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _impulseSource = GetComponent<CinemachineImpulseSource>();
         _playerInput = GetComponentInParent<PlayerInput>();
+        _virtualMouseCursor = GetComponentInParent<CursorHandler>();
         CurrentGrenades = _grenadesAtStart;
     }
 
@@ -176,7 +178,8 @@ public class Gun : MonoBehaviour
 
     private void RotateGun()
     {
-        _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //_mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _mousePos = Camera.main.ScreenToWorldPoint(_virtualMouseCursor.GetCursorPosition());
         Vector2 direction = PlayerController.Instance.transform.InverseTransformPoint(_mousePos);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.localRotation = Quaternion.Euler(0, 0, angle);

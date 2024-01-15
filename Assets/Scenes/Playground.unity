@@ -8270,7 +8270,7 @@ MonoBehaviour:
   m_CursorSpeed: 1000
   m_ScrollSpeed: 45
   m_StickAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Stick
       m_Type: 0
@@ -8300,7 +8300,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: 694521522268518364, guid: 9fd0e125740c69d48aed279df386a9e9, type: 3}
   m_MiddleButtonAction:
     m_UseReference: 0
     m_Action:
@@ -8312,7 +8312,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -6249971984247736483, guid: 9fd0e125740c69d48aed279df386a9e9, type: 3}
   m_RightButtonAction:
     m_UseReference: 0
     m_Action:
@@ -8324,7 +8324,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -3445363948857986612, guid: 9fd0e125740c69d48aed279df386a9e9, type: 3}
   m_ForwardButtonAction:
     m_UseReference: 0
     m_Action:
@@ -10817,10 +10817,18 @@ PrefabInstance:
       propertyPath: _maxFallSpeed
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 4737704491421281673, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _virtualMousePosition
+      value: 
+      objectReference: {fileID: 718200144}
     - target: {fileID: 4822056079514585903, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5719362443487968341, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _virtualMousePosition
+      value: 
+      objectReference: {fileID: 718200144}
     - target: {fileID: 6392455114541405327, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19
@@ -10869,6 +10877,10 @@ PrefabInstance:
       propertyPath: _specialBulletPrefab
       value: 
       objectReference: {fileID: 6678824993607789899, guid: 4b62b125eaf7e3140825a163bc85cd2f, type: 3}
+    - target: {fileID: 6609407968930159167, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
+      propertyPath: _virtualMousePosition
+      value: 
+      objectReference: {fileID: 718200144}
     - target: {fileID: 7797436531786760827, guid: 5e451ed8ba32b594f87a5bd6d75a4b99, type: 3}
       propertyPath: m_Enabled
       value: 1

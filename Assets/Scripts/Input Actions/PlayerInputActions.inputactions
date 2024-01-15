@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "90582ca3-e139-4def-b70d-d25902e5dedb",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -208,6 +208,17 @@
                     "name": "",
                     "id": "09ab29ad-e736-4a88-b0b6-7c2729dc394f",
                     "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d0db489-1b35-46b8-a3c9-ee30b1a5f9fc",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -229,7 +240,7 @@
                 {
                     "name": "",
                     "id": "d8fa06aa-f418-4967-8708-d3f5d15afa58",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

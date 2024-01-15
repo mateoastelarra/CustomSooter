@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private Coroutine _jetPackCoroutine;
 
     private Rigidbody2D _rigidBody;
+    private CursorHandler _virtualMouseCursor;
 
     public void Awake() {
         if (Instance == null) { Instance = this; }
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _movement = GetComponent<Movement>();
+        _virtualMouseCursor = GetComponent<CursorHandler>();
     }
 
     private void OnEnable()
@@ -170,8 +172,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSpriteFlip()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (mousePosition.x < transform.position.x || _frameInput.AimWithJoystick.x > 0)
+        //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(_virtualMouseCursor.GetCursorPosition());
+        if (mousePosition.x < transform.position.x)
         {
             transform.eulerAngles = new Vector3(0f, -180f, 0f);
         }
