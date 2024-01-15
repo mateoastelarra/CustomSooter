@@ -171,8 +171,7 @@ public class PlayerController : MonoBehaviour
     private void HandleSpriteFlip()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (mousePosition.x < transform.position.x)
+        if (mousePosition.x < transform.position.x || _frameInput.AimWithJoystick.x > 0)
         {
             transform.eulerAngles = new Vector3(0f, -180f, 0f);
         }

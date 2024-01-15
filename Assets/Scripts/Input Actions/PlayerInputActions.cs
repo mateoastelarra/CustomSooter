@@ -71,6 +71,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""6560391d-72f1-4094-8ec5-fd9e6afd5bad"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -293,6 +302,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""FireGrenade"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a731aa19-6350-4d35-8e25-964d08057e54"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -306,6 +326,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Jetpack = m_Player.FindAction("Jetpack", throwIfNotFound: true);
         m_Player_FireGun = m_Player.FindAction("FireGun", throwIfNotFound: true);
         m_Player_FireGrenade = m_Player.FindAction("FireGrenade", throwIfNotFound: true);
+        m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +393,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jetpack;
     private readonly InputAction m_Player_FireGun;
     private readonly InputAction m_Player_FireGrenade;
+    private readonly InputAction m_Player_Aim;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -381,6 +403,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Jetpack => m_Wrapper.m_Player_Jetpack;
         public InputAction @FireGun => m_Wrapper.m_Player_FireGun;
         public InputAction @FireGrenade => m_Wrapper.m_Player_FireGrenade;
+        public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -405,6 +428,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @FireGrenade.started += instance.OnFireGrenade;
             @FireGrenade.performed += instance.OnFireGrenade;
             @FireGrenade.canceled += instance.OnFireGrenade;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -424,6 +450,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @FireGrenade.started -= instance.OnFireGrenade;
             @FireGrenade.performed -= instance.OnFireGrenade;
             @FireGrenade.canceled -= instance.OnFireGrenade;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -448,5 +477,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnJetpack(InputAction.CallbackContext context);
         void OnFireGun(InputAction.CallbackContext context);
         void OnFireGrenade(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
     }
 }
