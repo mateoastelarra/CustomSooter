@@ -29,7 +29,6 @@ public class CursorHandler : MonoBehaviour
 
     public Vector3 GetCursorPosition()
     {
-        Debug.Log(_virtualMouseInput.virtualMouse.position.value);
         if (_frameInput.AimWithJoystick == Vector2.zero && _currentMousePosition != Input.mousePosition)
         {
             _virtualMouseCursor.position = Input.mousePosition;
@@ -37,6 +36,7 @@ public class CursorHandler : MonoBehaviour
         }
         _virtualMousePosition.x = Mathf.Clamp(_virtualMouseCursor.position.x, padding, Screen.width - padding);
         _virtualMousePosition.y = Mathf.Clamp(_virtualMouseCursor.position.y, padding, Screen.height - padding);
+
         _virtualMouseCursor.position = _virtualMousePosition;
         InputState.Change(_virtualMouseInput.virtualMouse.position, _virtualMousePosition);
         return _virtualMousePosition;

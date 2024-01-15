@@ -10187,7 +10187,7 @@ MonoBehaviour:
   _coyoteTime: 0.1
   _jetpackTime: 0.6
   _jetpackStrength: 11
-  _maxFallSpeed: -20
+  _maxFallSpeed: -25
 --- !u!114 &5719362443487968341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10200,7 +10200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1308d92400795fc40a46d41fb547af67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cursorTexture: {fileID: 2800000, guid: 9caa48c4b82c587418d36d0a3c6cb089, type: 3}
+  _virtualMouseCursor: {fileID: 0}
+  _playWithController: 0
+  padding: 20
+  _virtualMouseInput: {fileID: 0}
 --- !u!114 &4695845773432877215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10496,7 +10499,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822056079514585903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -10884,8 +10887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPoint: {fileID: 2695749764223596625}
   _bulletPrefab: {fileID: -5611149099131491127, guid: 9dca18bc1fee05d488922a753a58ca8d, type: 3}
-  _specialBulletPrefab: {fileID: 0}
-  _muzzleFlash: {fileID: 0}
+  _specialBulletPrefab: {fileID: 6678824993607789899, guid: 4b62b125eaf7e3140825a163bc85cd2f, type: 3}
+  _muzzleFlash: {fileID: 7176877954868897733}
   _gunFireCD: 0.2
   _muzzleFlashTime: 0.02
   _grenadesAtStart: 3

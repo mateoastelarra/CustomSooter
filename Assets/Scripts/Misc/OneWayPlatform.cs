@@ -6,6 +6,7 @@ public class OneWayPlatform : MonoBehaviour
 {
     private bool _playerOnPlatform = false;
     private float _disableColliderTime = 1f;
+    private float _controllerThreshold = -0.9f; // for left stick in controllers
     private Collider2D _platformCollider;
 
     Coroutine _disablePlatformCollider;
@@ -41,7 +42,7 @@ public class OneWayPlatform : MonoBehaviour
         if (!_playerOnPlatform) { return; }
         if(_disablePlatformCollider != null) { return; }
 
-        if (PlayerController.Instance.MoveInput.y < 0)
+        if (PlayerController.Instance.MoveInput.y < _controllerThreshold)
         {
             _disablePlatformCollider = StartCoroutine(DisablePlatformCollider());
         }
